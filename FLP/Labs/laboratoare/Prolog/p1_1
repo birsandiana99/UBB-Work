@@ -1,0 +1,3 @@
+sterge(_,[],[]).
+sterge(E,[E|T],T1):-sterge(E,T,T1),!;
+sterge(E,[H|T],[H|T1]):-sterge(E,T,T1).

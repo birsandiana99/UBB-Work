@@ -1,0 +1,18 @@
+;sa se scrie o functie care intoarce suma atomilor numerici dintr-o lista
+;de al nivel superficial
+(defun suma(l)
+  (do
+    (  
+     ; (sum 0 (cond ((numberp (car l)) (+ (car l) sum))
+      ;              (t sum)
+       ;      )
+      ;)
+      (l1 l (cdr l))
+    )  
+    ((cond ((null l1) sum))
+       ((numberp (car l1)) (+ (car l1) sum))
+       
+    )
+  )
+)
+

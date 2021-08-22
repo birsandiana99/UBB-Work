@@ -1,0 +1,41 @@
+L3:	Programare in Lisp folosind functii Map
+	---------------------------------------
+
+Pentru urmatoarele probleme se cer functii Lisp care folosesc functii Map:
+
+1.   Sa se construiasca o functie care intoarce numarul atomilor dintr-o 
+     lista, de la orice nivel.
+
+2.   Sa se construiasca o functie care intoarce suma atomilor numerici 
+     dintr-o lista, de la orice nivel.
+
+3.   Sa se construiasca o functie care intoarce produsul atomilor numerici
+     dintr-o lista, de la orice nivel.
+
+4.   Sa se construiasca o functie care intoarce maximul atomilor numerici
+     dintr-o lista, de la orice nivel.
+
+5.   Sa se construiasca o functie care intoarce adancimea unei liste.
+
+6.   Sa se construiasca o functie care verifica daca un atom e membru al
+     unei liste nu neaparat liniara.
+
+7.   Definiti o functie care inverseaza o lista impreuna cu toate sublistele
+     sale de pe orice nivel.
+
+8.   Sa se scrie o functie care sterge toate aparitiile unui atom de la
+     toate nivelurile unei liste.
+
+9.   Sa se scrie o functie care calculeaza suma numerelor pare minus suma
+     numerelor impare la toate nivelurile unei liste.
+
+10.  Definiti o functie care substituie un element prin altul la toate 
+     nivelurile unei liste date.
+
+11.  Definiti o functie care substituie un element E prin elementele
+     unei liste L1 la toate nivelurile unei liste date L.
+
+12.  Definiti o functie care obtine dintr-o lista data lista tuturor atomilor
+     care apar, pe orice nivel, dar in aceeasi ordine. De exemplu 
+     (((A B) C) (D E)) --> (A B C D E)
+

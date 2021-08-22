@@ -1,0 +1,35 @@
+     1                                  bits 32
+     2                                  global start
+     3                                  
+     4                                  extern exit, printf
+     5                                  import printf msvcrt.dll
+     6                                  import exit msvcrt.dll
+     7                                  
+     8                                  segment date use32 class=data
+     9 00000000 0102030405060708        	array db 1,2,3,4,5,6,7,8
+    10                                  	l equ $-array
+    11 00000008 00                      	s db 0
+    12 00000009 7468652073756D2069-     	msg db 'the sum is %d', 10,13,0
+    12 00000012 732025640A0D00     
+    13                                  segment code use32 class=code
+    14                                  start:
+    15 00000000 B908000000              	mov ecx, l
+    16 00000005 BE00000000              	mov esi, 0
+    17 0000000A B300                    	mov bl, 0
+    18 0000000C E30B                    	jecxz endc
+    19                                  	repeat:
+    20 0000000E 8A86[00000000]          		mov al, [array+esi]
+    21 00000014 00C3                    		add bl, al
+    22 00000016 46                      		inc esi
+    23 00000017 E2F5                    	loop repeat
+    24                                  	endc:
+    25 00000019 881D[08000000]              mov [s], bl
+    26 0000001F A0[08000000]                mov al, [s]
+    27 00000024 6698                        cbw
+    28 00000026 98                          cwde
+    29 00000027 50                          push dword eax
+    30 00000028 68[09000000]                push dword msg
+    31 0000002D FF15[00000000]              call [printf]
+    32 00000033 83C408                      add esp, 4*2
+    33 00000036 6A00                        push    dword 0      ; push the parameter for exit onto the stack
+    34 00000038 FF15[00000000]              call    [exit]       ; call exit to terminate the program

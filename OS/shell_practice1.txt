@@ -1,0 +1,5 @@
+Utilizatorii, de cate ori s au logat si numele complet
+last -t `date +%y%m01000000` | sed "s/ .*//" | sort | uniq -c | sort -n -r | while read L U; do \ 
+N=`grep "^$U:" /etc/passwd | cut -d: -f5`
+echo $L $N
+done 

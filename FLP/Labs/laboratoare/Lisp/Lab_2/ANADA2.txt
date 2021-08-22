@@ -1,0 +1,19 @@
+;sa se decida daca un arbore de tipul doi este echilibrat, adica daca 
+;diferenta dintre adancimile celor doi subarbori nu este mai mare decat 1
+;adancime=nr de nivele
+;arb 2 (rad (sub1) (sub2))
+(defun adancime(l)
+   (cond 
+     ((null l) 0)
+     ((null (cdr l)) 1)
+     (t (+ 1 (max (adancime (car (cdr l))) (adancime (cdr (cdr l)))))) 
+   )
+)
+(defun echi(l)
+  (cond 
+     ((> 2 (abs (- (adancime (car (cdr l))) (adancime (cdr (cdr l)))))) 'echi) 
+     (t 'not_echi)
+  )
+)
+
+

@@ -1,0 +1,36 @@
+;L1
+;1 a) get all atoms from any level in the same order
+(defun atoms (l)
+  (cond
+    ((null l) nil)
+    ((atom l) (list l))
+    ((atom (car l)) (cons (car l) (atoms (cdr l))))
+    (t (append (atoms (car l)) (atoms (cdr l))))
+   )
+)
+(atoms '(((A B) C) (D E)))
+
+;1 b) return max value of numerical atoms in list, at superficial level
+(defun getmax (l)
+  (cond
+    ((null l) 0)
+    ((numberp l) l)
+    ((atom l) 0)
+    ((numberp (car l)) (max (car l) (getmax (cdr l))))
+    (t (getmax (cdr l)))
+   )
+)
+(getmax '(1 2 3 A B 17 D F X))
+
+(defun nod_nivel(k a)
+  (cond
+     ((null a) nil)
+     ((= k 0) (list (car a))) ;radacina -nivelul 0
+     ;altfel, vreau de pe un nivel mai mare ca 0
+     (t (mapcan 'nod_nivel (- k 1) (cdr a)))
+  )
+)
+(defun whatever(l)
+  (nod_nivel (- k 1) l)
+)
+(nod_nivel 1 '(A 2 B 0 C 2 D 0 E 0))

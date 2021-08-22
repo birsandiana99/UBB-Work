@@ -1,0 +1,158 @@
+     1                                  bits 32
+     2                                  global start
+     3                                  
+     4                                  extern exit, printf, fread, fopen, fclose
+     5                                  import exit msvcrt.dll
+     6                                  import printf msvcrt.dll
+     7                                  import fread msvcrt.dll
+     8                                  import fopen msvcrt.dll
+     9                                  import fclose msvcrt.dll
+    10                                  
+    11                                  segment data use32 class=data:
+    12 00000000 696E7075745F657832-         file db 'input_ex26_lab9.txt', 0
+    12 00000009 365F6C6162392E7478-
+    12 00000012 7400               
+    13 00000014 7200                        modread db 'r', 0
+    14 00000016 FF                          handle db -1
+    15                                      space equ ' '
+    16 00000017 00000000<rept>              evenValues times 20 dd 0
+    17 00000067 00000000<rept>              oddValues times 20 dd 0
+    18 000000B7 20256400                    printFormat db ' %d', 0
+    19 000000BB 0A0D00                      endl db '', 10, 13, 0
+    20 000000BE 00000000                    currentNumber dd 0
+    21 000000C2 00000000                    lastEvenPosition dd 0
+    22 000000C6 00000000                    lastOddPosition dd 0
+    23 000000CA 00                          value db 0
+    24                                  
+    25                                  segment code use32 class=code:
+    26                                      start:
+    27                                      ; opend the file in read mode
+    28 00000000 68[14000000]                    push dword modread
+    29 00000005 68[00000000]                    push dword file
+    30 0000000A FF15[00000000]                  call [fopen]
+    31 00000010 83C408                          add esp, 4*2
+    32                                          
+    33 00000013 A3[16000000]                    mov [handle], eax; handle1 = handle for file in read mode
+    34 00000018 83F800                          cmp eax, 0; checks if there was an error while opening the file
+    35 0000001B 0F84ED000000                    je error; jumps to end of code if there was an error while opening the file
+    36                                          
+    37                                          ; reads the contents from the input file and stores them in the value variable
+    38 00000021 FF35[16000000]                  push dword [handle]
+    39 00000027 6A64                            push dword 100
+    40 00000029 6A01                            push dword 1
+    41 0000002B 68[CA000000]                    push dword value
+    42 00000030 FF15[00000000]                  call [fread]
+    43 00000036 83C410                          add esp, 4*4
+    44 00000039 83F800                          cmp eax, 0; checks if there was an error while reading the file
+    45 0000003C 0F84CC000000                    je error; jumps to end of code if there was an error while reading from the file
+    46                                          
+    47                                          ; closes the input file
+    48 00000042 FF35[16000000]                  push dword [handle]
+    49 00000048 FF15[00000000]                  call [fclose]
+    50 0000004E 83C404                          add esp, 4*1
+    51                                          
+    52                                          ; goes through every character that was read from the input file
+    53 00000051 BE00000000                      mov esi, 0
+    54                                          findNumbers:
+    55 00000056 8A86[CA000000]                      mov al, byte [value+esi]
+    56 0000005C 50                                  push eax
+    57 0000005D 3C00                                cmp al, 0; checks if we've reached the end of the input
+    58 0000005F 743D                                je spaceCase; evaluates the last number from the input
+    59 00000061 3C20                                cmp al, space; checks if we've reached a space character (a.k.a. we found a new number)
+    60 00000063 7439                                je spaceCase; evaluates the newly found number
+    61                                              
+    62                                              ; builds the current number
+    63 00000065 8B1D[BE000000]                      mov ebx, [currentNumber]
+    64 0000006B EB22                                jmp mul10; the unit digit becomes the decimal digit, decimal -> hundreds, ...
+    65                                              ; add the current digit to the number that is being built
+    66                                              addNextDigit:
+    67 0000006D 891D[BE000000]                      mov dword [currentNumber], ebx
+    68 00000073 2C30                                sub al, 48
+    69 00000075 6698                                cbw
+    70 00000077 98                                  cwde
+    71 00000078 0105[BE000000]                      add [currentNumber], eax
+    72                                              
+    73                                              continue:
+    74 0000007E 46                                  inc esi; advances to the next character
+    75 0000007F 58                                  pop eax
+    76 00000080 3C00                                cmp al, 0; checks if we've reached end of input
+    77 00000082 0F8497000000                        je endc; jumps to end of code if we've reached end of input
+    78 00000088 EBCC                            jmp findNumbers
+    79                                          
+    80 0000008A E990000000                      jmp endc
+    81                                          
+    82                                          mul10:
+    83 0000008F B909000000                          mov ecx, 9
+    84                                              do:
+    85 00000094 031D[BE000000]                          add ebx, [currentNumber]
+    86 0000009A E2F8                                loop do
+    87 0000009C EBCF                            jmp addNextDigit; jumps back to where it was called
+    88                                          
+    89                                          spaceCase:
+    90 0000009E 8B1D[BE000000]                      mov ebx, [currentNumber]
+    91 000000A4 83E301                              and ebx, 00000001h
+    92 000000A7 51                                  push ecx
+    93 000000A8 FF35[BE000000]                      push dword [currentNumber]
+    94 000000AE 68[B7000000]                        push dword printFormat
+    95 000000B3 FF15[00000000]                      call [printf]
+    96 000000B9 83C408                              add esp, 4*2
+    97 000000BC 59                                  pop ecx
+    98 000000BD 7402                                jz addEven
+    99 000000BF 7525                                jnz addOdd
+   100                                          
+   101                                          addEven:
+   102 000000C1 8B3D[C2000000]                      mov edi, [lastEvenPosition]
+   103 000000C7 8B1D[BE000000]                      mov ebx, [currentNumber]
+   104 000000CD 891CBD[17000000]                    mov dword [evenValues+edi*4], ebx
+   105 000000D4 FF05[C2000000]                      inc dword [lastEvenPosition]
+   106 000000DA C705[BE000000]0000-                 mov dword [currentNumber], 0
+   106 000000E2 0000               
+   107 000000E4 EB98                            jmp continue
+   108                                          
+   109                                          addOdd:
+   110 000000E6 8B3D[C2000000]                      mov edi, [lastEvenPosition]
+   111 000000EC 8B1D[BE000000]                      mov ebx, [currentNumber]
+   112 000000F2 891CBD[67000000]                    mov dword [oddValues+edi*4], ebx
+   113 000000F9 FF05[C6000000]                      inc dword [lastOddPosition]
+   114 000000FF C705[BE000000]0000-                 mov dword [currentNumber], 0
+   114 00000107 0000               
+   115 00000109 E970FFFFFF                      jmp continue
+   116                                          
+   117                                          ; closes the input file in case of an I/O error
+   118                                          error:
+   119 0000010E FF35[16000000]                      push dword [handle]
+   120 00000114 FF15[00000000]                      call [fclose]
+   121 0000011A 83C404                              add esp, 4*1
+   122 0000011D EB58                            jmp endprog
+   123                                          
+   124                                          endc:
+   125 0000011F BE00000000                      mov esi, 0
+   126 00000124 8B0D[C2000000]                  mov ecx, [lastEvenPosition]
+   127                                          printEvens:
+   128 0000012A 51                                  push ecx
+   129 0000012B FF34B5[17000000]                    push dword [evenValues+esi*4]
+   130 00000132 68[B7000000]                        push dword printFormat
+   131 00000137 FF15[00000000]                      call [printf]
+   132 0000013D 83C408                              add esp, 4*2
+   133 00000140 59                                  pop ecx
+   134 00000141 46                                  inc esi
+   135 00000142 E2E6                            loop printEvens
+   136                                          
+   137 00000144 68[BB000000]                    push dword endl
+   138 00000149 FF15[00000000]                  call [printf]
+   139 0000014F 83C404                          add esp, 4*1
+   140                                          
+   141 00000152 BE00000000                      mov esi, 0
+   142 00000157 8B0D[C6000000]                  mov ecx, [lastOddPosition]
+   143                                          printOdds:
+   144 0000015D 51                                  push ecx
+   145 0000015E FF34B5[67000000]                    push dword [oddValues+esi*4]
+   146 00000165 68[B7000000]                        push dword printFormat
+   147 0000016A FF15[00000000]                      call [printf]
+   148 00000170 83C408                              add esp, 4*2
+   149 00000173 59                                  pop ecx
+   150 00000174 46                                  inc esi
+   151 00000175 E2E6                            loop printOdds
+   152                                          endprog:
+   153 00000177 6A00                            push dword 0
+   154 00000179 FF15[00000000]                  call [exit]

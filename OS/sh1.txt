@@ -1,0 +1,166 @@
+I/O Redirections
+stdout - standard output
+
+if [-n $var] -sa verifici daca e nr
+2>/dev/null
+
+if [ "$var" -eq "$var" ]
+
+checksum=`cat $filename | md5sum`
+
+ls - displays the results in the standard output (stdout);
+ls > file_list.txt - the result is written in the file_list.txt file; with each call, the content of the file is overwritten;
+ls >> file_list.txt - the result is added to the file_list.txt file; if it does not exit, it will be created;
+stdin - standard input
+sort - sorts the text written in the console;
+sort < file_list.txt - sorts the content of the file_list.txt file;
+sort < file_list.txt > sorted_list.txtsorts the content of the file_list.txt file and writes the result in the sorted_list.txt file;
+
+Shell Scripts
+Structure of a .sh file
+The first line of the file specifies the interpreter. One of:
+#!/bin/sh
+#!/bin/bash
+# Comments are preceded by the # character
+Some versions recognize comments only if they are written at the beggining of the line
+Example:
+#!/bin/bash                
+# Classic hello world stuff
+echo "Hello world"         
+Running a .sh script
+Set execute permissions on the file: chmod 744 file.sh;
+Run the file: ./file.sh
+======================Command Line Arguments===============================
+
+    command arg1 arg2 ... arg9 ... $argn
+       $0    $1   $2       $9
+The name of the command and the first 9 arguments can be used in a .sh script:
+$0 - the command
+$1 - arg1
+$2 - arg2
+...
+$9 - arg9
+If the command line has less than 9 arguments, the absent ones are equal to the empty string.
+If there are more than 9, only the first 9 can be accessed directly (based on their ordinal)
+$# - the number of command line arguments
+$* - all the command line arguments, as a single string: "$1 $2 $3 ..."
+$@ - all the command line arguments, as a list of strings: "$1" "$2" "$3" ...
+$- - the argument that contains the command line options
+$? - the exit (return) code of the previous command (0 = success)
+
+Note: command line arguments are separated by spaces. To have a single command line argument that contains spaces, surround it with '...' or "..."
+Problem:
+Display the second argument of the command line.
+shift
+The command shifts the arguments to the left with one or multiple positions.
+In fact, it renames the arguments.
+shift - shift arguments by one
+ the value of $0 is lost; the following assignments are made: 
+  $0 = $1; $1 = $2 a.s.o. until the last argument;
+ the value of $# is decreased by 1
+shift n - shift the arguments by n
+ the value of the first n arguments is lost; the following assignments are made:
+  $0 = $n; $1 = $n+1 a.s.o.
+
+
+IF Statements
+
+if [ expression ];
+    then
+        < list of commands >
+elif [ expression ];
+    then
+        < list of commands >
+...
+elif [ expression ];
+    then
+        < list of commands >
+else
+    < list of commands>
+fi
+
+The expression evaluated by if can be a custom expression, one of the standard expressions or a combination of both
+[ -f file_name ] - TRUE if file_name exists and is a standard file
+[ -e file_name ] - TRUE if file_list exists
+[ string1 = string2 ] - TRUE if the two strings are equal
+Expressions with arithmetic operators: [ ARG1 OP ARG2 ], where OP is one of: -eq, -ne, -lt, -le, -gt, -ge
+-eq: equal
+-ne: not equal
+-gt: greater than
+...
+for, while, until
+for - 1st form
+sort_files.sh
+for file_name
+    do
+        sort < $file_name | more
+    done
+Command line: ./sort_files.sh file_1 file_2 file_3   
+Equivalent to: sort < file_1 | more ; sort < file_2 | more ; sort < file_3 | more
+
+
+for - 2nd form
+sort_files.sh
+for file_name in file_1 file_2 file_3
+    do
+        sort < $file_name | more
+    done
+Command line: ./sort_files.sh file_1 file_2 file_3   
+Equivalent to: sort < file_1 | more ; sort < file_2 | more ; sort < file_3 | more
+
+
+
+Example: compute the sum of all the command line arguments
+#!/bin/bash
+sum=0
+
+for a in $*
+  do
+     sum=`expr $sum + $a`
+  done
+
+  echo $sum
+
+while
+while commandsLst
+    do
+        # stuff
+    done
+
+
+until
+until commandsLst
+    do
+        #stuff
+    done
+
+Examples
+Find all the files in the current directory that contain at least a digit.
+for filename in `find .`
+do
+  if [ -f $filename ]
+  then
+     if grep -q "[0-9]" $filename
+     then
+         echo $filename
+     fi
+  fi
+done
+Find recursively in a directory all ".c" files having more than 10 lines. Stop after finding 5 such files.
+count=0
+for filename in `find -name "*.c"`
+do
+  if [ -f $filename ]
+  then
+     nr_lines=`cat $filename|wc -l`
+     if [ $nr_lines -gt 10 ]
+     then
+         echo $filename
+         count=`expr $count + 1`
+     fi
+     if [ $count -eq 5 ]
+     then
+         break
+     fi
+  fi
+done

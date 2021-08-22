@@ -1,0 +1,31 @@
+;se da un arbore n-ar de tip 1
+;el se reprezinta in modul urmator: radacina, nr subarbori, subarb1 , subarb2..;se da un element x, sa se determine nivelul pe care apare x in arbore
+;nivelul radacinii se considera a fi nivelul 0. 
+(defun cauta(e l) 
+   (cond
+     ((member e l) t)
+     (t nil)
+   ) 
+)
+(defun transform(l)
+;transforma un arbore de tip 1 intr-un arbore de tip 2
+  (cond
+    ((null l) l)
+    ((and (car l) (equal (cdr l) nil)) (list (car l)))
+     ;daca exista un singur element atunci el este radacina arborelui
+    ((equal (car l) 0) nil)
+    (t (list (car l) (transform (cdr (cdr l)))))
+     ;altfel inseamna ca sunt mai multe elemente==>va trebui sa pun radacina
+     ;si sa construiesc subarborii
+  )
+)
+
+(defun nivel(e l) ;pe ce nivel se afla e in arb l
+    (cond
+       ((equal (car l) e) 0) ;daca e primul elem, atunci e radacina arb si nive                             ;lul este 0
+              
+    )
+)
+
+
+

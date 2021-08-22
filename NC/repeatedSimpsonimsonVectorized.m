@@ -1,0 +1,1 @@
+function area = repeatedSimpsonimsonVectorized(a,b,n,f)  h=(b-a)/n;  x = a+h: h: b-h;  midPoints = (a+h/2):h:(b-h/2);    area = h/6 * (f(a) + f(b) + 4* sum(f(midPoints)) + 2 * sum(f(x))); endfunction

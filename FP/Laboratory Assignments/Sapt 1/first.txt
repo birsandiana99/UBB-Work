@@ -1,0 +1,284 @@
+Python 3.6.6 (v3.6.6:4cf1f54eb7, Jun 27 2018, 03:37:03) [MSC v.1900 64 bit (AMD64)] on win32
+Type "copyright", "credits" or "license()" for more information.
+>>> a=10
+>>> a
+10
+>>> type[a]
+Traceback (most recent call last):
+  File "<pyshell#2>", line 1, in <module>
+    type[a]
+TypeError: 'type' object is not subscriptable
+>>> id(a)
+1635544384
+>>> a=18
+>>> id(a)
+1635544640
+>>> type(a)
+<class 'int'>
+>>> print(a)
+18
+>>> print("the value is: ",a)
+the value is:  18
+>>> print("the value is: " + a)
+Traceback (most recent call last):
+  File "<pyshell#9>", line 1, in <module>
+    print("the value is: " + a)
+TypeError: must be str, not int
+>>> print("the value is"+ str(a))
+the value is18
+>>> a=input("give me a number")
+give me a number5
+>>> a
+'5'
+>>> a=int(a)
+>>> a
+5
+>>> a=int(input("enter a number"))
+enter a number54
+>>> a
+54
+>>> print(a)
+54
+>>> l=[]
+>>> l="rrr"
+>>> l
+'rrr'
+>>> l=[1,2,3]
+>>> l
+[1, 2, 3]
+>>> l(0)
+Traceback (most recent call last):
+  File "<pyshell#23>", line 1, in <module>
+    l(0)
+TypeError: 'list' object is not callable
+>>> l[0]
+1
+>>> l[2]
+3
+>>> len(l)
+3
+>>> l[3]=5
+Traceback (most recent call last):
+  File "<pyshell#27>", line 1, in <module>
+    l[3]=5
+IndexError: list assignment index out of range
+>>> l=append(189)
+Traceback (most recent call last):
+  File "<pyshell#28>", line 1, in <module>
+    l=append(189)
+NameError: name 'append' is not defined
+>>> l.append(178)
+>>> l[3]
+178
+>>> l.insert(5)
+Traceback (most recent call last):
+  File "<pyshell#32>", line 1, in <module>
+    l.insert(5)
+TypeError: insert() takes exactly 2 arguments (1 given)
+>>> l.insert(0,200)
+>>> l
+[200, 1, 2, 3, 178]
+>>> l=[0]*10
+>>> l
+[0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+>>> a=True
+>>> a
+True
+>>> a=False
+>>> a
+False
+>>> for i in range(0,10)
+SyntaxError: invalid syntax
+>>> for i in range(0,10);
+SyntaxError: invalid syntax
+>>> for in range(0,10):
+	
+SyntaxError: invalid syntax
+>>> for i in range(0,10):
+	a=10
+	a=a+1
+	print("i:",i)
+	print("a:",a)
+
+i: 0
+a: 11
+i: 1
+a: 11
+i: 2
+a: 11
+i: 3
+a: 11
+i: 4
+a: 11
+i: 5
+a: 11
+i: 6
+a: 11
+i: 7
+a: 11
+i: 8
+a: 11
+i: 9
+a: 11
+>>> 
+==================== RESTART: C:/Users/Admin/Desktop/1.py ====================
+enter a number5
+The number is:  5
+>>> 
+==================== RESTART: C:/Users/Admin/Desktop/1.py ====================
+enter a number 1343534
+The number is:  1343534
+>>> 
+==================== RESTART: C:/Users/Admin/Desktop/1.py ====================
+enter a number 54
+The number 54 is even
+>>> 
+==================== RESTART: C:/Users/Admin/Desktop/1.py ====================
+enter a number 2
+The number 2 is odd
+>>> 
+==================== RESTART: C:/Users/Admin/Desktop/1.py ====================
+enter a number 12312
+The number 12312 is even
+>>> 
+==================== RESTART: C:/Users/Admin/Desktop/1.py ====================
+Give me the first number: 3
+Give me the first number: 5
+The sum is:  8
+>>> x=100
+>>> while(x)
+SyntaxError: invalid syntax
+>>> while x!=0:
+	x++
+	
+SyntaxError: invalid syntax
+>>> while x!=0:
+l.append(178)
+SyntaxError: expected an indented block
+>>> l
+Traceback (most recent call last):
+  File "<pyshell#57>", line 1, in <module>
+    l
+NameError: name 'l' is not defined
+>>> 
+=================== RESTART: C:/Users/Admin/Desktop/pb5.py ===================
+>>> x=123
+>>> while x!=0:
+        l.append(x%10)
+        x=x/10
+    print(l)
+    
+SyntaxError: unindent does not match any outer indentation level
+>>> x=123
+while x!=0:
+        u.append(x%10)
+        x=x/10
+print(u)
+SyntaxError: multiple statements found while compiling a single statement
+>>> x=123
+>>> x
+123
+>>> while x!=0:
+	p.append(x%10)
+	x=x/10
+print(l)
+SyntaxError: invalid syntax
+>>> x=123
+>>> while x!=0:
+	q.append(x%10)
+	x=x/10
+print(str(l))
+SyntaxError: invalid syntax
+>>> x=123
+>>> while x!=0
+SyntaxError: invalid syntax
+>>> x=123
+>>> while x!=0:
+	e.append(x%10)
+	x=x/10
+print(*a)
+SyntaxError: invalid syntax
+>>> x=123
+>>> while x!=0:
+	p.append(x%10)
+	x=x/10
+
+	
+Traceback (most recent call last):
+  File "<pyshell#83>", line 2, in <module>
+    p.append(x%10)
+NameError: name 'p' is not defined
+>>> x=123
+>>> p=[0]*100
+>>> p
+[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+>>> x=123
+>>> while x!=0
+SyntaxError: invalid syntax
+>>> 
+=================== RESTART: C:/Users/Admin/Desktop/pb5.py ===================
+Traceback (most recent call last):
+  File "C:/Users/Admin/Desktop/pb5.py", line 7, in <module>
+    largestnumber(5678)
+  File "C:/Users/Admin/Desktop/pb5.py", line 3, in largestnumber
+    l.append(x%10)
+NameError: name 'l' is not defined
+>>> 
+=================== RESTART: C:/Users/Admin/Desktop/pb5.py ===================
+[8, 7, 6, 5]
+>>> 
+=================== RESTART: C:/Users/Admin/Desktop/pb5.py ===================
+Traceback (most recent call last):
+  File "C:/Users/Admin/Desktop/pb5.py", line 9, in <module>
+    largestnumber(5678)
+  File "C:/Users/Admin/Desktop/pb5.py", line 6, in largestnumber
+    sort(l)
+NameError: name 'sort' is not defined
+>>> 
+=================== RESTART: C:/Users/Admin/Desktop/pb5.py ===================
+[5, 6, 7, 8]
+>>> 
+=================== RESTART: C:/Users/Admin/Desktop/pb5.py ===================
+[8, 7, 6, 5]
+>>> 
+=================== RESTART: C:/Users/Admin/Desktop/pb5.py ===================
+Traceback (most recent call last):
+  File "C:/Users/Admin/Desktop/pb5.py", line 15, in <module>
+    largestnumber(5678)
+  File "C:/Users/Admin/Desktop/pb5.py", line 12, in largestnumber
+    l=l+1
+TypeError: can only concatenate list (not "int") to list
+>>> 
+=================== RESTART: C:/Users/Admin/Desktop/pb5.py ===================
+>>> 
+=================== RESTART: C:/Users/Admin/Desktop/pb5.py ===================
+>>> 
+=================== RESTART: C:/Users/Admin/Desktop/pb5.py ===================
+765
+>>> 
+=================== RESTART: C:/Users/Admin/Desktop/pb5.py ===================
+8765
+>>> 
+=================== RESTART: C:/Users/Admin/Desktop/pb5.py ===================
+Traceback (most recent call last):
+  File "C:/Users/Admin/Desktop/pb5.py", line 15, in <module>
+    largestnumber(5678)
+  File "C:/Users/Admin/Desktop/pb5.py", line 11, in largestnumber
+    y=y*10+int(l[k])
+IndexError: list index out of range
+>>> 
+=================== RESTART: C:/Users/Admin/Desktop/pb5.py ===================
+Traceback (most recent call last):
+  File "C:/Users/Admin/Desktop/pb5.py", line 15, in <module>
+    largestnumber(5678)
+  File "C:/Users/Admin/Desktop/pb5.py", line 11, in largestnumber
+    y=y*10+int(l[k])
+IndexError: list index out of range
+>>> 
+=================== RESTART: C:/Users/Admin/Desktop/pb5.py ===================
+8765
+>>> 
+=================== RESTART: C:/Users/Admin/Desktop/pb5.py ===================
+Give x a value5643
+6543
+>>> 

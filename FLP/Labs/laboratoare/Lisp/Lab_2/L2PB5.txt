@@ -1,0 +1,10 @@
+;sa se tipareasca lisat nodurilor de pe nivelul k dintr-un arb de tipul 1
+(defun nod_nivel(k a)
+  (cond
+     ((null a) nil)
+     ((= k 0) (list (car a))) ;radacina -nivelul 0
+     ;altfel, vreau de pe un nivel mai mare ca 0
+     (t (mapcan '(lambda (l) (nod_nivel (- k 1) l)) (cdr a)))
+  )
+) 
+

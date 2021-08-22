@@ -1,0 +1,15 @@
+;sa se afiseze parcurgerea in postordine pt un arborebinar de tipul 2
+(defun postordine(l)
+  (cond
+    ((null l) l)
+    (t (append (postordine (car (cdr l))) (postordine (car (cdr (cdr l)))) (list(car l))))
+  )
+)
+(defun stang(l)
+ (car (cdr l))
+)
+(defun drept(l)
+  (car (cdr (cdr l))) ;!!!!!!!!!
+)
+
+

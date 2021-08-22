@@ -1,0 +1,35 @@
+%replace all occ of the maximum element of a list of integers with a
+% given value
+
+
+% i,i,o
+maxim_number(A, B, A) :- A >= B.
+maxim_number(A, B, B) :- A < B.
+
+
+% maxList(L:list, R:number)
+% maxList(i, o)
+% L - list, R- maxim of the list
+maxList([H], H).
+maxList([H|T], R) :-
+    maxList(T, RM),
+    maxim_number(H, RM, R).
+
+
+%replace(L:list, R:list, Nr, NewNr)
+%replace(i,i,i,o)
+% L- initial list, R- rez, Nr- number to replace, NewNr- nr to replace
+% Nr with
+replace([], _, _, []).
+replace([H|T], Nr, NewNr, [NewNr|R]) :- H =:= Nr, !,
+    replace(T, Nr, NewNr, R).
+replace([H|T], Nr, NewNr, [H|R]) :-
+    replace(T, Nr, NewNr, R).
+
+% replaceMax(L:list,Nr: number R:list)
+% flow model: replaceMax(i, i, o)
+% l- initial list, nr- number to replace the max with, Rez- final list
+replaceMax([],_,[]).
+replaceMax(L,Nr,Rez) :-
+    maxList(L,Max),
+    replace(L,Max,Nr,Rez).

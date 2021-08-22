@@ -1,0 +1,26 @@
+#!/bin/bash
+count=1
+#while [ $count -le $# ]
+#do
+#       echo $($count)
+#       let "count++"
+#done
+for file in $*
+do
+        if [ -d $file ]
+        then
+        #       echo $file
+                echo `du $file`
+        fi
+done | sort -n
+~
+
+Write a shell script that prints the directories received as
+command line arguments sorted ascendingly by their size. Ignore 
+arguments that are not directories.
+
+Example: ./script.sh dir1 34 file dir2
+
+Result:
+   4 dir2
+  16 dir1

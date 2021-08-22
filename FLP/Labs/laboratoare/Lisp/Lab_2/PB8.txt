@@ -1,0 +1,11 @@
+;se da un arbore n-ar de tipul 2. Sa se determine adancimea la care apare un
+;nod in arborele respectiv
+;nivelul radacinii este 0
+(defun  nivel(e l)
+  (cond
+     ((null l) -666) ;nu e in lista
+     ((equal (car l) e) 0) ;este primul element==>radacina==>nivelul 0
+     (t (+ 1 (max (nivel e (car (cdr l))) (nivel e (car (cdr (cdr l))))))) 
+)
+)
+

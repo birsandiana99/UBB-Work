@@ -1,0 +1,80 @@
+useful commands
+
+echo 'baz' | cut -b 2
+a
+echo 'baz' | cut -b 1-2
+ba
+echo 'baz' | cut -b 1,3
+bz
+
+
+cut -d ',' -f 1 names.csv
+John
+Arthur  
+George
+
+
+
+$cut -d "delimiter" -f (field number) file.txt ex:: $ cut -d " " -f 1-4 state.txt
+last
+ps
+who
+df
+du (how large is a directory)  ex: du ostechnix/
+-wc -l
+-wc -c
+| head 
+| tail
+|sort |uniq
+
+
+The below simple sed command replaces the word “unix” with “linux” in the file.
+$sed 's/unix/linux/' geekfile.txt
+/g for global
+Replacing the nth occurrence of a pattern in a line : Use the /1, /2 etc flags to replace the first,
+second occurrence of a pattern in a line. The below command replaces the second occurrence of the word 
+“unix” with “linux” in a line.     $sed 's/unix/linux/2' geekfile.txt
+
+
+
+find /etc ->lista cu tot ce contine directorul etc
+
+find /etc -name "*.sh"
+
+
+find /etc -name "*.sh" 2>/dev/null   -> directeaza erorile spre o "gaura neagra"
+
+find /etc -name "*.sh" 2>/dev/null | sed "s/\/[^\/]*$//"
+
+
+
+
+for file in $*
+do
+        if [ -d $file ]
+        then
+        #       echo $file
+                echo `du $file`
+        fi
+done | sort -n
+
+
+if [ -w $file ]  -write permission
+
+
+if [ -e $file ]  -executable
+
+
+
+-a FILE        True if file exists.
+-e FILE        True if file exists.
+-f FILE        True if file exists and is a regular file.
+-r FILE        True if file is readable by you.
+-s FILE        True if file exists and is not empty.
+-w FILE        True if the file is writable by you.
+
+
+
+
+OR: -o
+AND: -a

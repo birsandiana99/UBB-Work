@@ -1,0 +1,67 @@
+L4:	Programare iterativa in Lisp
+	----------------------------
+
+1. Pentru urmatoarele probleme se cer functii LISP programate in mod iterativ:
+   a. Sa se scrie o functie care selecteaza al n-lea element al unei liste, sau
+      NIL, daca nu exista
+   b. Sa se scrie o functie care descompune o lista de numere intr-o lista de
+      forma ( (numar_de_numere_pare (lista_de_numere_pare))
+      (numar_de_numere_impare (lista_de_numere_impare)) )
+
+2. Pentru urmatoarele probleme se cer functii LISP programate in mod iterativ:
+   a. Sa se construiasca o functie care intoarce cel mai mare divizor comun al
+      numerelor dintr-o lista liniara
+   b. Sa se scrie o functie care realizeaza o lista de asociere cu cele  2 liste
+      pe care le primeste. De ex:
+      (A B C) (X Y Z) --> ((A.X) (B.Y) (C.Z))
+
+3. Pentru urmatoarele probleme se cer functii LISP programate in mod iterativ:
+   a. Definiti o functie care, dintr-o lista de atomi produce o lista de perechi
+      de forma (ATOM N), unde ATOM apare in lista initiala de N ori. De ex:
+      (A B A B A C A) --> ((A 4) (B 2) (C 1))
+   b. Sa se construiasca o functie care intoarce numarul atomilor dintr-o lista,
+      de la nivel superficial
+
+4. Pentru urmatoarele probleme se cer functii LISP programate in mod iterativ:
+   a. Sa se scrie o functie care intoarce reuniunea a 2 multimi (liste)
+   b. Sa se elimine elementul de pe pozitia N a unei liste liniare
+
+5. Pentru urmatoarele probleme se cer functii LISP programate in mod iterativ:
+   a. Sa se construiasca o functie care intoarce produsul atomilor numerici dintr-o
+      lista, de la nivel superficial
+   b. Sa se intercaleze un element pe pozitia N a unei liste liniare
+
+6. Pentru urmatoarele probleme se cer functii LISP programate in mod iterativ:
+   a. Sa se construiasca o functie care intoarce maximul atomilor numerici dintr-o
+      lista, de la nivel superficial
+   b. Definiti o functie care inverseaza o lista
+
+7. Pentru urmatoarele probleme se cer functii LISP programate in mod iterativ:
+   a. Sa se scrie o functie care substituie un element prin altul pe primul nivel
+      al unei liste
+   b. Sa se scrie o functie care testeaza daca o lista este liniara
+
+8. Pentru urmatoarele probleme se cer functii LISP programate in mod iterativ:
+   a. Sa se scrie o functie care intoarce T daca o lista are numar par de elemente
+      pe primul nivel si NIL in caz contrar, fara sa se numere elementele listei
+   b. Sa se scrie o functie care testeaza daca o lista liniara este o multime
+
+9. Pentru urmatoarele probleme se cer functii LISP programate in mod iterativ:
+   a. Sa se scrie o functie care sterge toate aparitiile unui atom de la primul
+      al unei liste
+   b. Sa se scrie o functie care transforma o lista liniara intr-o multime
+
+10. Pentru urmatoarele probleme se cer functii LISP programate in mod iterativ:
+   a. Sa se scrie o functie care testeaza egalitatea a 2 multimi, fara sa se faca
+      apel la diferenta a 2 multimi
+   b. Sa se construiasca o functie care intoarce suma atomilor numerici dintr-o
+      lista, de la nivel superficial
+
+11. Pentru urmatoarele probleme se cer functii LISP programate in mod iterativ:
+   a. Sa se scrie o functie care intoarce intersectia a 2 multimi (liste)
+   b. Definiti o functie care determina diferenta a 2 numere in reprezentare de
+      lista
+
+12. Pentru urmatoarele probleme se cer functii LISP programate in mod iterativ:
+   a. Sa se scrie o functie care intoarce diferenta a 2 multimi (liste)
+   b. Sa se interclaseze 2 liste liniare sortate

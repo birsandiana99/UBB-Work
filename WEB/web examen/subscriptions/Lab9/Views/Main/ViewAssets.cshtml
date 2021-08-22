@@ -1,0 +1,46 @@
+﻿@{
+    Layout = null;
+}
+
+
+<!DOCTYPE html>
+
+<script src="~/Scripts/jquery-3.4.1.js"></script>
+<script language="javascript">
+
+
+    $(document).ready(function () {
+
+        let currentUser = sessionStorage["currentUser"];
+        if (currentUser) {
+            Array.prototype.pushArray = function (arr) {
+                this.push.apply(this, arr);
+            };
+            let currentUser = sessionStorage["currentUser"];
+            console.log(currentUser);
+            console.log(sessionStorage["id"]);
+            //var users = [];
+        }
+        else {
+            alert("user not logged in");
+            location.href = '/Login';
+        }
+        $("#viewAll-btn").click(function () {
+            $.get("/Main/getAssets", {},
+                function (data, status) {
+                    $("#maindiv").html(data);
+                });
+            
+            
+
+        });
+    }
+    );
+
+</script>
+<html>
+Assets
+<button type="button" id="viewAll-btn">View all assets</button>
+<div id="maindiv"></div>
+<br />
+</html>

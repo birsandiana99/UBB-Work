@@ -1,0 +1,31 @@
+﻿@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<script src="~/Scripts/jquery-3.4.1.js"></script>
+<script language="javascript">
+
+
+    $(document).ready(function () {
+        $("#go-btn").click(function () {
+            if ($('#name').val().length != null) {
+                sessionStorage.setItem("currentUser", $('#name').val());
+                location.href = 'Channels';
+            }
+            else {
+                alert("Enter a name!");
+            }
+        });
+        });
+
+</script>
+<html>
+<body>
+    <p>Name: <input type="text" name="name" id="name" /></p>
+    <button type="button" id="go-btn">Go</button>
+
+</body>
+
+
+</html>
+

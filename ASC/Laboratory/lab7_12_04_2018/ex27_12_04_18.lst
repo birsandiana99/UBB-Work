@@ -1,0 +1,68 @@
+     1                                  bits 32
+     2                                  global start
+     3                                  
+     4                                  extern exit, printf, scanf
+     5                                  import exit msvcrt.dll
+     6                                  import printf msvcrt.dll
+     7                                  import scanf msvcrt.dll
+     8                                  
+     9                                  segment data use32 class=data:
+    10 00000000 616263646166656164-         charArray db 'a','b','c','d','a','f','e','a','d','e'; the array of characters
+    10 00000009 65                 
+    11                                      len equ $-charArray; length of charArray
+    12 0000000A 506C6561736520656E-         readChar db "Please enter a character ", 0; Message to be printed out before reading a character
+    12 00000013 746572206120636861-
+    12 0000001C 7261637465722000   
+    13 00000024 256300                      readFormat db "%c", 0; necessary for reading a character via scanf
+    14 00000027 746865206368617261-         printFormat db "the character %c appears %d times in the defined array", 10, 13, 0; message to be printed out with the read character and the number of times it is found in charArray
+    14 00000030 637465722025632061-
+    14 00000039 707065617273202564-
+    14 00000042 2074696D657320696E-
+    14 0000004B 207468652064656669-
+    14 00000054 6E6564206172726179-
+    14 0000005D 0A0D00             
+    15 00000060 00                          charToFind db 0; the character to find in charArray
+    16                                     
+    17                                  segment code use32 class=code:
+    18                                      start:
+    19                                          ; prints the message that notifies the necessity of inputting a character
+    20 00000000 68[0A000000]                    push dword readChar
+    21 00000005 FF15[00000000]                  call [printf]
+    22 0000000B 83C404                          add esp, 4*1
+    23                                          ; reads the requested character
+    24 0000000E 68[60000000]                    push charToFind
+    25 00000013 68[24000000]                    push dword readFormat
+    26 00000018 FF15[00000000]                  call [scanf]
+    27 0000001E 83C408                          add esp, 4*2
+    28                                          
+    29 00000021 BE00000000                      mov esi, 0; starting offset for charArray
+    30 00000026 BB00000000                      mov ebx, 0; counts the number of occurences of the read character in charArray
+    31 0000002B B90A000000                      mov ecx, len; ecx = length of charArray
+    32 00000030 E316                            jecxz endc; jumps to the end of the program if charArray is empty
+    33                                          findOccureneces:
+    34 00000032 8A86[00000000]                      mov al, [charArray+esi]; al = current element from charArray
+    35 00000038 3A05[60000000]                      cmp al, [charToFind]; compares the inputted character and the current character
+    36 0000003E 7405                                je incrementOccucrences; jumps to incrementOccucrences if the 2 are equal
+    37                                              contiune:; tag to be jumped to if the number of occurences was incremented
+    38 00000040 46                                  inc esi; advance to the next element of charArray
+    39 00000041 E2EF                            loop findOccureneces; repeats findOccureneces until ecx = 0
+    40 00000043 EB03                            jmp endc
+    41                                          
+    42                                          incrementOccucrences:
+    43 00000045 43                              inc ebx; increments the counter of occurences
+    44 00000046 EBF8                            jmp contiune; jumps back to where it was called
+    45                                          
+    46                                          endc:
+    47                                          ; prints out the inpputted character and the number of its occurences
+    48 00000048 53                              push dword ebx
+    49 00000049 A0[60000000]                    mov al, [charToFind]
+    50 0000004E 6698                            cbw
+    51 00000050 98                              cwde
+    52 00000051 50                              push dword eax
+    53 00000052 68[27000000]                    push dword printFormat
+    54 00000057 FF15[00000000]                  call [printf]
+    55 0000005D 83C40C                          add esp, 4*3
+    56                                          ; exits the program
+    57 00000060 6A00                            push dword 0
+    58 00000062 FF15[00000000]                  call [exit]
+    59                                          

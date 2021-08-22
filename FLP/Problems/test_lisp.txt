@@ -1,0 +1,58 @@
+;gnu clisp 2.49
+
+(defun digit (l k c)
+    (cond
+        ((null l) (- k c))
+        ((null k) (- (+ l c) 10))
+        (T (- l (+ k c)))
+    )
+)
+
+
+(defun my_append (l k)
+    (if (null l) 
+        k
+        (cons (car l) (my_append (cdr l) k))
+    )
+)
+
+
+
+(defun my_reverse (l)
+    (cond
+        ((null l) nil)
+        ((listp (car l)) (my_append (my_reverse (cdr l)) (list (my_reverse (car l)))))
+        (T (my_append (my_reverse (cdr l)) (list (car l))))
+    )
+)
+
+
+(defun carry (l k c)
+    (cond
+        ((null k) (if (> (- k c) 0) 0 (+ c 1)))
+        ((and (> l k) (= c 0)) 0)
+        ((and (> l (+ k c)) (!= c 0)) 0)
+        ((< l (+ k c)) (+ 1 c))
+    )
+)
+
+
+(defun diff (l k c)
+    (cond
+        (and (null k) (> (- k 1) 0)) (if (= 1 c) (list (- k 1)) nil))
+        (T (my_append (diff (cdr l) (cdr k) (carry (car l) (car k) c)) (list (digit (car l) (car k) c))))        
+    )
+)
+
+(defun solve (l k)
+    (diff (my_reverse l) (my_reverse k) 0)
+)
+
+
+
+
+
+
+
+
+

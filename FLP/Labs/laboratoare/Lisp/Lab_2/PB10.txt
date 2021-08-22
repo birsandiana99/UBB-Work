@@ -1,0 +1,70 @@
+;se da un arbore de tip 1 si un element. Sa se determine nivelul pe care apare
+;elementul in lista
+;cu preconditia ca un elem este in sublista returneaza lista care incepe cu el
+(defun subl(e l)
+  (cond 
+     ((equal (car l) e) l) 
+      ;daca e primul element atunci returnez toata lista
+     (t (subl e (cdr l)))
+     ;altfel trec recursiv in restul listei
+  )
+)
+;prec: primul elem din lista este nodul e, vreau sa elimin din lista
+;primele elemente a i primul element al noii liste sa devina tati nodului
+;dat
+;cond: suma numerelor care reprez nr de subarbori trebuie sa fie cel putin
+;egala cu numarul nodurilor dintre tata si fiu (inclusiv fiul) + 1
+;prec lista l nu e vida pt ca contine cel putin elem e
+(defun redu_tati(l nr nrnod)
+   (cond
+     ((equal (cdr l) nil) nil)
+     ;daca singurul elem din lista este e atunci returnez lista vida
+     ((>=(+ (car (cdr l)) nr) (+ 1 nrnod)) (cdr (cdr l)))
+     (t (redu_tati (cdr (cdr l)) (+ (car (cdr l)) nr) (+ 1 nrnod)))        
+   )
+)
+
+(defun nivel(e l)
+   (cond
+     ((not (member e l)) '-1)
+     ;((equal (car l) e) 0)
+     ;daca e radacina atunci nivelul este 0
+     ;altfel este nivelul tatalui + 1
+     (t (+ 1 (nivel (car (redu_tati (subl e l) 0 0) ) (redu_tati (subl e l) 0 0     ))))
+)
+)
+(defun niv(e l)
+   (nivel e (reverse l))
+) 
+;se da un arb de tip 1 sa se transforme intr-un arbore de tip 2
+(defun st(l nr nrnod)
+;incep cu al 3-lea element si iau elem pana cand suma nr subarb este
+;nr nodurilor -1
+   (cond
+      ((equal (cdr l) nil) nil)
+      ((= (+ (cadr l) nr) (+ 1 nrnod)) (list (car l) (cadr l)))
+      (t (cons (car l) (cons (cadr l) (st (cdr (cdr l)) (+ nr (cadr l)) 
+     (+ 1 nrnod)))))  
+   )
+)
+(defun elim(l1 l)
+;elimina sublista l1 din lista l, stiu ca l incepe cu l1
+  (cond
+    ((null l1) l) 
+    (t (elim (cdr l1) (cdr l)))  
+  )
+)
+
+(defun dr(l)
+;subarborele drept cu prec ca stiu subarb stang
+;elimin din l arb stang
+  (elim (st l 0 0) l)
+)
+(defun trans (l)
+  (cond
+    ((equal nil (cdr (cdr l))) (list (car l)))
+    
+    (t (cons (car l) (list (trans (cdr (cdr (st l 0 0)))) (trans (dr  l))))) 
+  )
+)
+

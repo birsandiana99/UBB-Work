@@ -1,0 +1,62 @@
+			===== GREP =====
+
+grep: gaseste toate liniile care indeplinesc o anumita conditie
+ex: grep "^[0-9]" a.txt - toate liniile din a.txt care incep cu o cifra
+
+fisierul exemplu.txt
+a.)
+grep cat exemplu.txt - va afisa si cat si catalog
+grep "\<cat\>" exemplu.txt - va afisa doar cat
+i- key insensitive
+-v - > afiseaza liniile care nu au
+
+b.) Find all lines from a file that start with a word ending in  “ing” 
+grep "^[a-zA-Z]*ing\>" exemplu.txt
+optiunea -o : afiseaza pt fiecare data cand apare
+	 -c : count
+
+c.) Find all lines from a file with odd number of charaters
+facem referire la divizibilitatea cu 2: daca facem perechi de 2 caractere o sa ramana unul la sf
+
+
+			==== SED ====	
+a.)Replace s with sh
+sed "s/s/sh/ig" exemplu.txt (ig- inseamna ca e inlocuit peste tot)
+
+b.) Fiecare inceput de linie cu abd
+sed "s/^/abc/"
+
+c.) Fiecare linie goala cu empty
+sed "s/^$/empty/" exemplu.txt 
+
+d.)Rotate with one position every triplet of characters in a file : ex:  abc => bca
+sed “s/\(.\)\(.\)\(.\)/\3\1\2/g” a.txt
+
+/g global
+
+sed "y/ab/AB/" exemplu.txt inlocuieste ab cu AB
+
+sed "y/ab/AB/" exemplu.txt >b.txt redirecteaza in fis b.txt
+
+sed "/^$/d" a.txt
+
+
+				==== AWK ====
+
+- limbaj descriptiv
+- putem sa scriem codul imd dupa comanda, sau intr un fisier si sa rulam fisierul
+
+
+- F ca sa schimbam delimitatorul ( in mod normal este spatiu, daca vrem sa fie `:` scriem awk -F:
+intre `` scriem codul
+awk -F: `{print$1}` exemplu.txt -primul camp dupa delimitarea de :
+
+
+NR - variabila predefinita, pe a cata linie suntem 
+NF - number of fields, cate coloane exista pe linie
+$0- toata linia
+
+
+
+
+

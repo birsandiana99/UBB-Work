@@ -1,0 +1,21 @@
+[2019-04-01 11:52:57] [info] Start Program:
+Path:"C:\Users\Admin\Desktop\Assignment 5-6\Debug\Assignment 5-6.exe"
+Arguments:
+Working directory: "C:\Users\Admin\Desktop\Assignment 5-6\Assignment 5-6\"
+Modules: Selected: C:\Users\Admin\Desktop\Assignment 5-6\Debug\Assignment 5-6.exe Excluded: 
+Sources: Selected: C:\Users\Admin\Desktop\Assignment 5-6\Assignment 5-6 Excluded: 
+Log Level: Normal
+Cover Children: 0
+Aggregate by file: 1
+Continue after C++ exception: 0
+Optimized build support: 0
+Export: Binary C:\Users\Admin\AppData\Local\Temp\m2m1u2b0.cjq 
+Input coverage: 
+Unified diff: 
+Excluded line regular expressions: 
+Substitute pdb source paths: 
+
+[2019-04-01 11:52:57] [info] Module: C:\Users\Admin\Desktop\Assignment 5-6\Debug\Assignment 5-6.exe is selected because it matches selected pattern: C:\Users\Admin\Desktop\Assignment 5-6\Debug\Assignment 5-6.exe
+[2019-04-01 11:53:00] [info] ----------------------------------------------------
+[2019-04-01 11:53:00] [info] Coverage binary generated in file: C:\Users\Admin\AppData\Local\Temp\m2m1u2b0.cjq
+[2019-04-01 11:53:00] [info] ----------------------------------------------------

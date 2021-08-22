@@ -1,0 +1,48 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script language="javascript">
+        $(document).ready(function () {
+            sessionStorage.setItem("currentUser", null);
+            $("#b1").click(function () {
+                if ($('#username').val().length && $('#password').val().length) {
+                    $.post(
+                        "/Login/Login",
+                        {
+                            username: $('#username').val(),
+                            password: $('#password').val()
+                        },
+                        function (data) {
+                            console.log(data);
+                            if (data["success"] === true) {                               
+                                sessionStorage.setItem("currentUser", $('#username').val());
+                                sessionStorage.setItem("id", data["id"]);
+                                location.href = 'Main';
+                            } else {
+                                $("#error").html("<p>Bad credentials!</p>");
+                            }
+                        }
+                    );
+                } else {
+                    alert("Fields should be non-empty!")
+                }
+            });
+        });
+    </script>
+</head>
+<body>
+    <h2 style="position: absolute; left: 45%; top: 34%;">Login</h2>
+    <form style="position: absolute; left: 40%; top: 43%;">
+        <p>Username: <input type="text" name="username" id="username"/></p>
+        <p>Password: <input type="password" name="password" id="password"/></p>
+        <button type="button" id="b1" class="button">Login</button>
+    </form>
+    <div id="error"></div>
+</body>
+</html>

@@ -1,0 +1,262 @@
+
+.form-data-show{
+  margin-left: 30%;
+  margin-top: 3%;
+}
+ #buy-book-button{
+   margin-left: 7%;
+   padding: 1% 0.5%;
+   border-radius: 10px;
+ }
+
+/* BOOK RELATED CSS*/
+.selected {
+  background-color: #CFD8DC !important;
+  color: white;
+}
+
+#bookParagraph{
+  text-align: center;
+  font-family: Monospaced;
+  font-size: 30px;
+  color: #607D8B;
+}
+
+.book-section{
+  /* #50A7C2;*/
+  margin-left: 20%;
+  padding: 5%;
+  border-radius: 30px;
+  margin-right: 20%;
+
+}
+
+
+.bookContainer li {
+  list-style: none;
+  cursor: pointer;
+  position: relative;
+  background-color: #EEE;
+  margin: .5em;
+  padding: .3em 0;
+  height: 1.6em;
+  border-radius: 4px;
+  color: #607D8B;
+}
+
+
+.bookContainer li.selected:hover {
+  background-color: #BBD8DC !important;
+  color: white;
+}
+
+.books li:hover {
+  color: #607D8B;
+  background-color: #DDD;
+
+}
+.bookContainer .text {
+  position: relative;
+  top: -3px;
+}
+
+.bookContainer .badge {
+  display: inline-block;
+  font-size: small;
+  color: white;
+  padding: 0.8em 0.7em 0 0.7em;
+  background-color: #607D8B;
+  line-height: 1em;
+  position: relative;
+  left: -1px;
+  top: -4px;
+  height: 1.8em;
+  margin-right: .8em;
+  border-radius: 4px 0 0 4px;
+}
+
+#selBooktDiv > button, p{
+  font-family: Monospaced;
+  font-size: 25px;
+  color: #607D8B;
+}
+
+/* CLIENT RELATED */
+.selected {
+  background-color: #CFD8DC !important;
+  color: white;
+}
+
+#clientParagraph{
+  text-align: center;
+  font-family: Monospaced;
+  font-size: 30px;
+}
+
+.student-section{
+  /* #50A7C2;*/
+  margin-left: 20%;
+  padding: 5%;
+  border-radius: 30px;
+  margin-right: 20%;
+
+}
+
+
+.clientContainer li {
+  list-style: none;
+  cursor: pointer;
+  position: relative;
+  background-color: #EEE;
+  margin: .5em;
+  padding: .3em 0;
+  height: 1.6em;
+  color: #607D8B;
+  border-radius: 4px;
+}
+
+
+.clientContainer li.selected:hover {
+  background-color: #BBD8DC !important;
+  color: white;
+}
+
+.students li:hover {
+  color: #607D8B;
+  background-color: #DDD;
+
+}
+.clientContainer .text {
+  position: relative;
+  top: -3px;
+}
+
+.clientContainer .badge {
+  display: inline-block;
+  font-size: small;
+  color: white;
+  padding: 0.8em 0.7em 0 0.7em;
+  background-color: #607D8B;
+  line-height: 1em;
+  position: relative;
+  left: -1px;
+  top: -4px;
+  height: 1.8em;
+  margin-right: .8em;
+  border-radius: 4px 0 0 4px;
+}
+
+#selClientDiv > button, p{
+  font-family: Monospaced;
+  font-size: 25px;
+  color: #607D8B;
+}
+
+/*nav bar clients*/
+/*NAV BAR*/
+.navigationBar{
+  display: flex;
+  flex-direction: row;
+}
+
+
+#previousPageClientsSalesContainer, #nextPageClientsSalesContainer{
+  background-color: #EEE;
+  opacity: 60%;
+  margin-top: 3%;
+  padding: 2.5%;
+  border-radius: 10px;
+}
+
+#previousPageClientsSalesContainer:hover, #nextPageClientsSalesContainer:hover{
+  background-color: #607D8B;
+}
+
+#previousPageClientsSalesContainer{
+  margin-left: 35%;
+}
+#nextPageClientsSalesContainer{
+  margin-left: 6%;
+}
+
+/* book nav bar */
+/*NAV BAR*/
+
+#previousPageBooksSalesContainer, #nextPageBooksSalesContainer{
+  background-color: #EEE;
+  opacity: 60%;
+  margin-top: 3%;
+  padding: 2.5%;
+  border-radius: 10px;
+}
+
+#previousPageBooksSalesContainer:hover, #nextPageBooksSalesContainer:hover{
+  background-color: #607D8B;
+}
+
+#previousPageBooksSalesContainer{
+  margin-left: 35%;
+}
+#nextPageBooksSalesContainer{
+  margin-left: 6%;
+}
+
+/* SEARCH CLIENT */
+.filterByNameClientContainer{
+  margin-top: 4%;
+  margin-left: 30%;
+  margin-right: 27%;
+  display: flex;
+  flex-direction: row;
+  background-color: #EEE;
+  padding-bottom: 1%;
+  padding-top: 1%;
+  padding-left: 1%;
+  border-radius: 20px;
+}
+
+#filterNameClientLabel, #clientNameFilterInput{
+  font-family: Monospaced;
+  font-size: 30px;
+  text-align: center;
+  color: #607D8B;
+}
+
+#filterNameClientLabel{
+  margin-right: 10%;
+}
+
+#clientNameFilterInput{
+  border-radius: 10px;
+}
+
+/* SEARCH BOOK */
+
+
+.filterByTitleBookContainer{
+  margin-top: 4%;
+  margin-left: 30%;
+  margin-right: 27%;
+  display: flex;
+  flex-direction: row;
+  background-color: #EEE;
+  padding-bottom: 1%;
+  padding-top: 1%;
+  padding-left: 1%;
+  border-radius: 20px;
+}
+
+#filterTitleLabel, #titleFilterInput{
+  font-family: Monospaced;
+  font-size: 30px;
+  text-align: center;
+  color: #607D8B;
+}
+
+#filterTitleLabel{
+  margin-right: 10%;
+}
+
+#titleFilterInput{
+  border-radius: 10px;
+}

@@ -1,0 +1,45 @@
+     1                                  bits 32
+     2                                  global start        
+     3                                  
+     4                                  extern exit
+     5                                  import exit msvcrt.dll
+     6                                  
+     7                                  segment data use32 class=data
+     8                                  
+     9 00000000 5555                        a dw 0101010101010101b
+    10 00000002 AAAA                        b dw 1010101010101010b
+    11 00000004 00000000                    c dd 0
+    12                                  
+    13                                  segment code use32 class=code
+    14                                      start:
+    15                                          ; Given the words A and B, compute the doubleword C as follows:
+    16 00000000 B900000000                      mov ecx, 0
+    17                                          
+    18                                          ;the bits 0-5 of C are the same as the bits 3-8 of A
+    19 00000005 66A1[00000000]                  mov ax, [a]; AX = A
+    20 0000000B 6625F801                        and ax, 0000000111111000b; we isolate bits 3-8 of AX
+    21 0000000F 66C1C803                        ror ax, 3; we rotate the bits of AX with 3 positions to the right, so bits 3-8 are now bits 0-5
+    22 00000013 6601C1                          add cx, ax; we make the bits 0-5 of CX = bits 0-5 of A
+    23                                          
+    24                                          ;the bits 6-8 of C are the same as the bits 2-4 of B
+    25 00000016 66A1[02000000]                  mov ax, [b]; AX = B
+    26 0000001C 6683E01C                        and ax, 0000000000011100b; we isolate the bits 2-4 of AX
+    27 00000020 66C1C004                        rol ax, 4; we rotate the bits of AX with 4 positions to the left, so bits 2-4 are now bits 6-8
+    28 00000024 6601C1                          add cx, ax; we make bits 6-8 of CX = bits 2-4 of B
+    29                                          
+    30                                          ;the bits 9-15 of C are the same as the bits 6-12 of A
+    31 00000027 66A1[00000000]                  mov ax, [a]; AX = A
+    32 0000002D 6625C01F                        and ax, 0001111111000000b; we isolate bits 6-12 of AX
+    33 00000031 66C1C003                        rol ax, 3; we rotate the bits of AX with 3 positions to the left, so bits 6-12 are now bits 9-15
+    34 00000035 6601C1                          add cx, ax; we make bits 9-15 of CX = bits 6-12 of A
+    35                                          
+    36                                          ;the bits 16-31 of C have the value 0
+    37 00000038 890D[04000000]                  mov [c], ecx; we form the final version of the doubleword C
+    38                                          ; exit(0)
+    39 0000003E 6A00                            push    dword 0      ; push the parameter for exit onto the stack
+    40 00000040 FF15[00000000]                  call    [exit]       ; call exit to terminate the program
+    41                                          
+    42                                          ; al = 0101b
+    43                                          ; ah = 0001b
+    44                                          
+    45                                          ; and al, ah -> al = al and ah <=> al = 0101 and 0001 <=> al = 0001

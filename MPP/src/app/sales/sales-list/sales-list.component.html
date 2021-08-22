@@ -1,0 +1,16 @@
+<div class="sales-section">
+  <div class="saleContainer">
+    <p id="saleParagraph">Our Sales</p>
+    <li class="saleElem" *ngFor="let sale of salesArr">
+        '{{sale.bookName}}' bought by {{sale.clientName}}
+    </li>
+  </div>
+  <div class="navigationBar">
+    <div id="previousPageSalesContainer" (click)="prevPage()">
+      <label id="previousPageSales">Previous Page</label>
+    </div>
+    <div id="nextPageSalesContainer" (click)="nextPage()">
+      <label id="nextPageSales">Next Page</label>
+    </div>
+  </div>
+</div>

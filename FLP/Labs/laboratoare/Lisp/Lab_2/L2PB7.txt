@@ -1,0 +1,12 @@
+;sa se decida daca un arbore e echilibrat(diferenta dintre adancimile celor 2
+;subarbori nu e mai mare ca 1).
+(defun adancime(a)
+  (cond
+    ((null a) 0)
+    (t (+ 1 (max (adancime (cadr a)) (adancime (caddr a))))) 
+  )
+)
+(defun echilibrat(a)
+  (> 2 (abs (- (adancime (cadr a)) (adancime (caddr a)))))
+)
+

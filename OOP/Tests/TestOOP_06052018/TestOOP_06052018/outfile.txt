@@ -1,0 +1,4 @@
+	BP 
+	Date: 2019.05.23	Systolic value: 100	Diastolic value: 69  Result: 1
+	BP 
+	Date: 2019.03.23	Systolic value: 100	Diastolic value: 69  Result: 1

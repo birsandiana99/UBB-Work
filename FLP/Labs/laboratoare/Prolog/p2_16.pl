@@ -1,0 +1,11 @@
+eliminare([],[]).
+eliminare([H1|[H2|[H3|T]]],L):-H1<H2,
+H2<H3,!,
+L1=[H2|[H3|T]],
+eliminare(L1,L).
+eliminare([H1|[H2|[H3|T]]],L):-H1<H2,
+H2>=H3,!,
+L1=[H3|T],
+eliminare(L1,L).
+eliminare([H1|[H2|[]]],[]):-H1<H2,!.
+eliminare([H|T],[H|L]):-eliminare(T,L).

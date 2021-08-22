@@ -1,0 +1,12 @@
+Print a list of the form 'Running process_name' where process is the name of a running process, for each process that is active.
+
+Solution can be of the form:
+Running bash
+Running ps
+Running CMD
+
+
+
+#!/bin/bash
+ps>processes.txt
+awk '{if (NR>1) print "Running $4"}' processes.txt

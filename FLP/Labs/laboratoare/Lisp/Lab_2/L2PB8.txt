@@ -1,0 +1,11 @@
+;Sa se intoarca adancimea la care se afla un nod intr-un arbore
+
+(defun adancime_nod(e a)
+  (cond
+    ((null a) -666)
+    ((= e (car a)) 0)
+    ((null (cdr a)) -666)
+    (t (+ 1 (apply 'max (mapcar '(lambda (l) (adancime_nod e l)) (cdr a)))))
+  )
+)
+

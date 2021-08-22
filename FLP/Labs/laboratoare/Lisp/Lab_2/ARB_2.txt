@@ -1,0 +1,16 @@
+;se da un arbore de tip 2
+;sa se determine la ce nivel apare un nod x
+
+;cauta un elem intr-o lista
+(defun caut(e l)
+  (cond 
+    ((null l) nil)
+    ((listp (car l)) (or (caut e (car l)) (caut e (cdr l))))
+    (t (or (equal (car l) e) (caut e (cdr l))))  
+  )
+)
+;(defun nivel(e a)
+ ;   ((equal (car a) e) 0) ;daca e radacina, atunci nivelul este 0
+  ;  ((
+;)
+

@@ -1,0 +1,159 @@
+-- add after n occ elem E
+( defun addN (L e pc n)
+    (cond
+        ((null L) nil)
+        ((equal 0 (mod pc n))(cons e (addN L e (+ 1 pc) n)))
+        (t (cons (car l) (addN (cdr l) e (+ 1 pc) n)))
+    ))
+
+(defun addNMain(l e n)
+    (addN l e 1 n)
+)
+
+(write (addNMain '(1 2 3 4 5 3 2 1 4 2 2) '11 '2))
+
+
+
+--interclasare
+(defun interclasare ( l1 l2)
+    (cond 
+        ((null l2) l1)
+        ((null l1) l2)
+        ((< (car l1) (car l2)) (cons (car l1) (interclasare (cdr l1) l2)))
+        ((< (car l2) (car l1)) ( cons (car l2) (interclasare l1 (cdr l2))))
+        (t (cons (car l1) (interclasare (cdr l1) (cdr l2))))
+        ))
+
+( write (interclasare '(1 2 3 4 5) '(2 4 5 11 13)))
+
+
+-- elimina toate aparitiile
+
+( defun eliminaAll ( l e )
+    (cond 
+        ((null l) nil)
+        ((listp (car l)) (cons (eliminaAll (car l) e) (eliminaAll(cdr l) e)))
+        ((equal (car l) e) (eliminaAll (cdr l) e))
+        (t (cons (car l) (eliminaAll (cdr l) e)))
+        )
+    )
+
+
+--min from list and sublists
+(defun minAll( l)
+    (cond 
+        ((null l) 1000)
+        ((and (numberp (car l)) (oddp (car l))) (min (car l) (minAll(cdr l))))
+        ((listp (car l)) (min (minAll (carl)) (minAll (cdr l))))
+        (t (minAll(cdr l)))
+        ))
+
+(write (minAll '(1111 112 3 55 2 2 131)))
+
+
+--remove all occ 
+
+(defun removeAll(l e)
+    (cond
+        ((null l) nil)
+        ((listp (car l)) (cons (removeAll(car l))(removeAll(cdr l) e)))
+        ((equal (car l) e) (removeAll(cdr l) e))
+        (t (cons (car l) (removeAll(cdr l) e)))
+))
+        
+(write (removeAll '(1 2 3 45 2 4 34 2) '2))
+
+
+
+-- list with positions of min elem
+
+
+(defun minim (l)
+(cond
+((null l) 10000)
+((numberp (car l)) (min (car l) (minim (cdr l))))
+((atom (car l)) (minim (cdr l)))
+)
+)
+
+( defun positions (l e p)
+    (cond 
+        ((null l) nil)
+        ((equal (car l) e) (cons p (positions (cdr l) e (+ 1 p))))
+        (t (positions (cdr l) e (+ 1 p)))
+        ))
+
+( defun mainPos(l) 
+    (positions l (minim l) 1)
+              )
+
+
+(write (mainPos '(12 4 5 2 1 12 3 4 5 2 1)))
+(write (eliminaAll '(1 2 4 5 2 5 3 2 4 2 12 5 32) '2))
+
+
+
+
+#association list
+(defun my_append(l k)
+    (if (null l)
+        k
+        (cons (car l)(my_append (cdr l) k))
+     )
+)
+
+(defun assoc(l1 l2)
+    (cond
+        ((and (null l1) (null l2)) nil)
+        ((null l1) (my_append(list (cons NIL (car l2))) (assoc l1 (cdr l2))))
+        ((null l2) (my_append(list (cons (car l1) NIL)) (assoc (cdr l1) l2)))
+        (t (my_append (list(cons (car l1) (car l2))) (assoc (cdr l1) (cdr l2))))
+    )
+)
+
+(print (assoc '(A B C) '(1 2 3 4 5)))
+
+
+
+---  reverse a list
+
+(defun reverseLst (lst)
+	(cond
+		((null lst) nil)
+		(t (append (reverseLst (cdr lst)) (list (car lst))))
+	)
+)
+
+
+
+----appears in list
+
+(defun appearsInLst (lst e)
+	(cond
+		((null lst) nil)
+		(( = (car lst) e) e)
+		(T (appearsInLst (cdr lst) e))
+	)
+)
+
+
+---remove 
+
+(defun removv (lst)
+	(cond
+		((null lst) nil)
+		((= (mod (car lst) 3) 0) (cons (car lst) (removv (cdr lst))))
+		(T (removv (cdr lst)))
+	)
+)
+
+
+--- make set
+
+(defun makeSet (lst)
+	(cond
+		((null lst) nil)
+		((appearsInLst (cdr lst) (car lst)) (makeSet (cdr lst)))
+		(T (cons (car lst) (makeSet (cdr lst))))
+	)
+)

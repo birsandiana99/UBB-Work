@@ -1,0 +1,89 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<script src="~/Scripts/jquery-3.4.1.js"></script>
+<script language="javascript">
+    $(document).ready(function () {
+
+        if (sessionStorage["currentUser"]) {
+            Array.prototype.pushArray = function (arr) {
+                this.push.apply(this, arr);
+            };
+            let currentUser = sessionStorage["currentUser"];
+            //console.log(currentUser);
+        }
+        else {
+            alert("unknown not logged in");
+            location.href = '/Main/Start';
+        }
+        $("#see-owned-channels-btn").click(function () {
+            //console.log($["#oname"]);
+
+            $.get("/Main/getOwnerbyName", { owner: $("#oname").val() },
+                function (owner, status) {
+                    let ownerId = owner;
+                    //console.log(ownerId);
+                    $.get("/Main/getOwnedChannels", { owner: ownerId },
+                        function (data, status) {
+                            $("#maindiv").html(data);
+                        });
+                });
+        });
+
+        $("#see-subscribed-channels-btn").click(function () {
+
+            $.get("/Main/getSubscriptions", { user: sessionStorage["currentUser"] },
+                function (data, status) {
+                    $("#subscribed-div").html(data);
+                });
+        });
+
+
+        $("#subscribe-btn").click(function () {
+
+            $.get("/Main/subscribe", { user: sessionStorage["currentUser"] , channel: $("#cname").val()},
+                function (data, status) {
+                    if (data == 1) {
+                        alert("Updated subscription");
+                    }
+                    else {
+                        alert("Subscribed!");
+                    }
+                });
+        });
+    }
+    );
+
+</script>
+<html>
+<body>
+    <section id="see_owner">
+        <label>Owner name:</label>
+        <input type="text" id="oname" name="oname">
+        <button id="see-owned-channels-btn"> See owned channels </button>
+        <div id="maindiv"></div>
+
+    </section>
+
+    <section id="see_subscriptions">
+        <button id="see-subscribed-channels-btn"> See your subscriptions </button>
+        <div id="subscribed-div"></div>
+
+    </section>
+
+    <section id="subscribe">
+        <label>channel name:</label>
+        <input type="text" id="cname" name="cname">
+        <button id="subscribe-btn"> Subscribe </button>
+
+    </section>
+
+
+
+
+</body>
+
+
+</html>

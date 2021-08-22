@@ -1,0 +1,7 @@
+Pentru 3: b16:3 1-uri in binar: 2
+Pentru 6: b16:6 1-uri in binar: 2
+Pentru 9: b16:9 1-uri in binar: 2
+Pentru 1: b16:1 1-uri in binar: 1
+Pentru 3: b16:3 1-uri in binar: 2
+Pentru 4: b16:4 1-uri in binar: 1
+

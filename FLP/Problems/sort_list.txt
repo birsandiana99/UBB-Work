@@ -1,0 +1,16 @@
+% Model matematic:
+% merge_sort(l1...ln) =
+% 	[], n = o
+% 	[l1], n = 1
+% 	merge( merge_sort(l1....l(n/2)), merge_sort(l(n/2+1)...ln)), otherwise
+
+% merge_sort(L:list, R:list)
+% flow model: merge_sort(i, o)
+
+merge_sort([], []).
+merge_sort([E], [E]).
+merge_sort(L, R) :-
+    split(L, Left, Right),
+    merge_sort(Left, RL),
+    merge_sort(Right, RR),
+    my_merge(RL, RR, R).

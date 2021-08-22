@@ -1,0 +1,35 @@
+;sa se determine lungimea unei liste la nivel superficial
+(defun lung(l)
+  (prog ((lung 0))
+    et (cond
+          ((null l) (return lung))
+          (t (setq lung (+ lung 1)) (setq l (cdr l)) (go et))
+       )
+   )
+)
+;sa se determine suma atomilor numerici de la nivel superficial dintr-o lista
+(defun sum_nr(l)
+  (prog ((sum 0)) ;initializare
+     eti
+       (cond 
+          ((null l) (return sum))
+         ((numberp (car l)) (setq sum (+ (car l) sum)) (setq l (cdr l)) (go eti))
+        (t (setq l (cdr l)) (go eti))
+        )
+   )
+)
+;sa se scrie o fct care testeaza egalitatea a doua multimi fara a calcula
+;diferenta acestora  
+(defun egale(m1 m2) ;testeaza egalitatea a doua multimi
+ (prog ((m_egale t))
+   eti
+    (cond 
+        ((null (append m1 m2)) (return m_egale)) ;ambele vide deci egale
+        ((null (member (car m1) m2)) (setq m_egale nil) (return m_egale))
+        (t (setq m2 (delete (car m1) m2)) (setq m1 (delete (car m1) m1)) 
+           (go eti)
+        ) 
+    )
+  )
+)
+

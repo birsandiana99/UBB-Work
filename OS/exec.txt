@@ -1,0 +1,93 @@
+char* a[] = {"grep",
+             "/an1/gr911/",
+             "/etc/passwd",
+             NULL};
+execvp("grep", a);
+
+
+
+
+char* a[] = {"/bin/grep",
+             "/an1/gr911/",
+             "/etc/passwd",
+             NULL};
+execv("/bin/grep", a);
+
+
+
+
+execlp("grep",
+       "grep",
+       "/an1/gr911/",
+       "/etc/passwd",
+       NULL);
+
+
+
+execl("/bin/grep",
+      "/bin/grep",
+      "/an1/gr911/",
+      "/etc/passwd",
+      NULL);
+
+
+
+ char *b[]={"ls","-l",NULL};
+ execvp("ls",b);
+ char *a[]={"grep","an","123.txt",NULL};
+ execvp("grep",a);
+
+
+
+
+
+
+
+
+
+Write a program that reads from the command line (arguments) a list of text files.
+
+Modify these files such that each word is capitalized. Use a separate process for each file.
+
+
+
+#include <stdio.h>
+
+#include <string.h>
+
+#include <unistd.h>
+
+main(int argc, char* argv[]) {
+
+    int i, pid;
+
+    char argvFiu[200];
+
+    for (i=1; argv[i]; i++) {
+
+        pid = fork();
+
+        if (pid == 0) {
+
+            strcpy(argvFiu, argv[i]);
+
+            strcat(argvFiu, ".CAPIT");
+
+            execl("./cap", "./cap", argv[i], argvFiu, NULL);
+
+        } else
+
+            printf("Parent, launched child: %d ...> %s %s \n", pid, argv[i], argvFiu);
+
+    }
+
+    for (i=1; argv[i]; i++) wait(NULL);
+
+    printf("Launched simultaneously %d processes for capitalisation\n", argc - 1);
+
+}
+
+
+
+
+

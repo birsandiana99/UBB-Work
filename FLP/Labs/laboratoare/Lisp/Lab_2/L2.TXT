@@ -1,0 +1,52 @@
+L2:	Programare recursiva in Lisp (2)
+	--------------------------------
+
+Pentru urmatoarele probleme se cer functii Lisp programate in mod recursiv
+(eventual folosind functii MAP):
+
+Un arbore "n-ar" se memoreaza in urmatoarele doua moduri
+	(nod nr-subarbori lista-subarbore-1 lista-subarbore-2 ...)	(1)
+	(nod (lista-subarbore-1) (lista-subarbore-2) ...)		(2)
+De exemplu arborele
+	 A
+	/ \
+	B  C
+	  / \
+	 D   E
+Se reprezinta astfel in cele doua moduri:
+	(A 2 B 0 C 2 D 0 E 0)			(1)
+	(A (B) (C (D) (E)))			(2)
+   
+1. Sa se construiasca lista nodurilor unui arbore de tipul (1) parcurs in 
+   inordine.
+
+2. Sa se construiasca lista nodurilor unui arbore de tipul (1) parcurs in 
+   postordine.
+
+3. Sa se converteasca un arbore de tipul (1) la un arbore de tipul (2).
+
+4. Sa se converteasca un arbore de tipul (2) la un arbore de tipul (1).
+
+5. Sa se tipareasca lista nodurilor de pe nivelul k dintr-un arbore de tipul (1).
+
+6. Sa se construiasca lista nodurilor unui arbore de tipul (2) parcurs in 
+   postordine.
+
+7. Sa se decida daca un arbore de tipul (2) este echilibrat (diferenta dintre
+   adancimile celor 2 subarbori nu este mai mare decat 1).
+
+8. Sa se intoarca adancimea la care se afla un nod intr-un arbore de tipul (2).
+
+9. Se da un arbore de tipul (2). Sa se afiseze nivelul (si lista corespunzatoare
+   a nodurilor) avand numar maxim de noduri. Nivelul rad. se considera 0.
+
+10. Se da un arbore de tipul (1). Sa se precizeze nivelul pe care apare un nod
+    x in arbore. Nivelul radacii se considera a fi 0.  
+
+11. Se da un arbore de tipul (1). Sa se precizeze numarul de nivele din arbore.
+
+12. Se da un arbore de tipul (2). Sa se afiseze calea de la radacina pana la un 
+    nod x dat.
+
+
+

@@ -1,0 +1,293 @@
+--Program ID 2--
+
+ExeStack:
+(v1 int;(v1=2;(v2 int;(v2=3;IF(true) THEN(print(MUL(v1,v2)))ELSE(print(v1))))))
+
+SymTable:
+
+Out:
+[]
+FileTable:
+
+Heap:
+
+--Program ID 2--
+
+ExeStack:
+v1 int
+(v1=2;(v2 int;(v2=3;IF(true) THEN(print(MUL(v1,v2)))ELSE(print(v1)))))
+
+SymTable:
+
+Out:
+[]
+FileTable:
+
+Heap:
+
+--Program ID 2--
+
+ExeStack:
+v1 int
+(v1=2;(v2 int;(v2=3;IF(true) THEN(print(MUL(v1,v2)))ELSE(print(v1)))))
+
+SymTable:
+
+Out:
+[]
+FileTable:
+
+Heap:
+
+--Program ID 2--
+
+ExeStack:
+(v1=2;(v2 int;(v2=3;IF(true) THEN(print(MUL(v1,v2)))ELSE(print(v1)))))
+
+SymTable:
+v1->0
+
+Out:
+[]
+FileTable:
+
+Heap:
+
+--Program ID 2--
+
+ExeStack:
+(v1=2;(v2 int;(v2=3;IF(true) THEN(print(MUL(v1,v2)))ELSE(print(v1)))))
+
+SymTable:
+v1->0
+
+Out:
+[]
+FileTable:
+
+Heap:
+
+--Program ID 2--
+
+ExeStack:
+v1=2
+(v2 int;(v2=3;IF(true) THEN(print(MUL(v1,v2)))ELSE(print(v1))))
+
+SymTable:
+v1->0
+
+Out:
+[]
+FileTable:
+
+Heap:
+
+--Program ID 2--
+
+ExeStack:
+v1=2
+(v2 int;(v2=3;IF(true) THEN(print(MUL(v1,v2)))ELSE(print(v1))))
+
+SymTable:
+v1->0
+
+Out:
+[]
+FileTable:
+
+Heap:
+
+--Program ID 2--
+
+ExeStack:
+(v2 int;(v2=3;IF(true) THEN(print(MUL(v1,v2)))ELSE(print(v1))))
+
+SymTable:
+v1->2
+
+Out:
+[]
+FileTable:
+
+Heap:
+
+--Program ID 2--
+
+ExeStack:
+(v2 int;(v2=3;IF(true) THEN(print(MUL(v1,v2)))ELSE(print(v1))))
+
+SymTable:
+v1->2
+
+Out:
+[]
+FileTable:
+
+Heap:
+
+--Program ID 2--
+
+ExeStack:
+v2 int
+(v2=3;IF(true) THEN(print(MUL(v1,v2)))ELSE(print(v1)))
+
+SymTable:
+v1->2
+
+Out:
+[]
+FileTable:
+
+Heap:
+
+--Program ID 2--
+
+ExeStack:
+v2 int
+(v2=3;IF(true) THEN(print(MUL(v1,v2)))ELSE(print(v1)))
+
+SymTable:
+v1->2
+
+Out:
+[]
+FileTable:
+
+Heap:
+
+--Program ID 2--
+
+ExeStack:
+(v2=3;IF(true) THEN(print(MUL(v1,v2)))ELSE(print(v1)))
+
+SymTable:
+v1->2
+v2->0
+
+Out:
+[]
+FileTable:
+
+Heap:
+
+--Program ID 2--
+
+ExeStack:
+(v2=3;IF(true) THEN(print(MUL(v1,v2)))ELSE(print(v1)))
+
+SymTable:
+v1->2
+v2->0
+
+Out:
+[]
+FileTable:
+
+Heap:
+
+--Program ID 2--
+
+ExeStack:
+v2=3
+IF(true) THEN(print(MUL(v1,v2)))ELSE(print(v1))
+
+SymTable:
+v1->2
+v2->0
+
+Out:
+[]
+FileTable:
+
+Heap:
+
+--Program ID 2--
+
+ExeStack:
+v2=3
+IF(true) THEN(print(MUL(v1,v2)))ELSE(print(v1))
+
+SymTable:
+v1->2
+v2->0
+
+Out:
+[]
+FileTable:
+
+Heap:
+
+--Program ID 2--
+
+ExeStack:
+IF(true) THEN(print(MUL(v1,v2)))ELSE(print(v1))
+
+SymTable:
+v1->2
+v2->3
+
+Out:
+[]
+FileTable:
+
+Heap:
+
+--Program ID 2--
+
+ExeStack:
+IF(true) THEN(print(MUL(v1,v2)))ELSE(print(v1))
+
+SymTable:
+v1->2
+v2->3
+
+Out:
+[]
+FileTable:
+
+Heap:
+
+--Program ID 2--
+
+ExeStack:
+print(MUL(v1,v2))
+
+SymTable:
+v1->2
+v2->3
+
+Out:
+[]
+FileTable:
+
+Heap:
+
+--Program ID 2--
+
+ExeStack:
+print(MUL(v1,v2))
+
+SymTable:
+v1->2
+v2->3
+
+Out:
+[]
+FileTable:
+
+Heap:
+
+--Program ID 2--
+
+ExeStack:
+
+SymTable:
+v1->2
+v2->3
+
+Out:
+[1]
+FileTable:
+
+Heap:
+

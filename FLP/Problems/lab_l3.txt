@@ -1,0 +1,18 @@
+check(l1..ln,e)
+
+- 0 	n=0
+- 1 	l1 = e, l1 atom
+- check(l1) , l1 is list
+- check(l2..ln)
+
+
+
+( defun _check(l e)
+    ( cond
+        ((null l) 0)
+        ((and (atom (car l))(=(car l) e)) 1)
+        ((listp l) (mapcar #'(lambda (a) (_check a e)) (cdr l)))
+        ( T (_check (cdr l) e))
+      ))
+
+(print (_check '(1 2 5 (3 2) 1) 10))

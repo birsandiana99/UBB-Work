@@ -1,0 +1,726 @@
+--Program ID 2--
+
+ExeStack:
+(b bool;(c int;(b=true;(null=(b)?100:200;(print(c);(null=(false)?100:200;print(c)))))))
+
+SymTable:
+
+Out:
+[]
+FileTable:
+
+Heap:
+
+--Program ID 2--
+
+ExeStack:
+b bool
+(c int;(b=true;(null=(b)?100:200;(print(c);(null=(false)?100:200;print(c))))))
+
+SymTable:
+
+Out:
+[]
+FileTable:
+
+Heap:
+
+--Program ID 2--
+
+ExeStack:
+b bool
+(c int;(b=true;(null=(b)?100:200;(print(c);(null=(false)?100:200;print(c))))))
+
+SymTable:
+
+Out:
+[]
+FileTable:
+
+Heap:
+
+--Program ID 2--
+
+ExeStack:
+(c int;(b=true;(null=(b)?100:200;(print(c);(null=(false)?100:200;print(c))))))
+
+SymTable:
+b->false
+
+Out:
+[]
+FileTable:
+
+Heap:
+
+--Program ID 2--
+
+ExeStack:
+(c int;(b=true;(null=(b)?100:200;(print(c);(null=(false)?100:200;print(c))))))
+
+SymTable:
+b->false
+
+Out:
+[]
+FileTable:
+
+Heap:
+
+--Program ID 2--
+
+ExeStack:
+c int
+(b=true;(null=(b)?100:200;(print(c);(null=(false)?100:200;print(c)))))
+
+SymTable:
+b->false
+
+Out:
+[]
+FileTable:
+
+Heap:
+
+--Program ID 2--
+
+ExeStack:
+c int
+(b=true;(null=(b)?100:200;(print(c);(null=(false)?100:200;print(c)))))
+
+SymTable:
+b->false
+
+Out:
+[]
+FileTable:
+
+Heap:
+
+--Program ID 2--
+
+ExeStack:
+(b=true;(null=(b)?100:200;(print(c);(null=(false)?100:200;print(c)))))
+
+SymTable:
+b->false
+c->0
+
+Out:
+[]
+FileTable:
+
+Heap:
+
+--Program ID 2--
+
+ExeStack:
+(b=true;(null=(b)?100:200;(print(c);(null=(false)?100:200;print(c)))))
+
+SymTable:
+b->false
+c->0
+
+Out:
+[]
+FileTable:
+
+Heap:
+
+--Program ID 2--
+
+ExeStack:
+b=true
+(null=(b)?100:200;(print(c);(null=(false)?100:200;print(c))))
+
+SymTable:
+b->false
+c->0
+
+Out:
+[]
+FileTable:
+
+Heap:
+
+--Program ID 2--
+
+ExeStack:
+b=true
+(null=(b)?100:200;(print(c);(null=(false)?100:200;print(c))))
+
+SymTable:
+b->false
+c->0
+
+Out:
+[]
+FileTable:
+
+Heap:
+
+--Program ID 2--
+
+ExeStack:
+(null=(b)?100:200;(print(c);(null=(false)?100:200;print(c))))
+
+SymTable:
+b->true
+c->0
+
+Out:
+[]
+FileTable:
+
+Heap:
+
+--Program ID 2--
+
+ExeStack:
+(null=(b)?100:200;(print(c);(null=(false)?100:200;print(c))))
+
+SymTable:
+b->true
+c->0
+
+Out:
+[]
+FileTable:
+
+Heap:
+
+--Program ID 2--
+
+ExeStack:
+null=(b)?100:200
+(print(c);(null=(false)?100:200;print(c)))
+
+SymTable:
+b->true
+c->0
+
+Out:
+[]
+FileTable:
+
+Heap:
+
+--Program ID 2--
+
+ExeStack:
+(b bool;(c int;(b=true;(c=(b)?100:200;(print(c);(c=(false)?100:200;print(c)))))))
+
+SymTable:
+
+Out:
+[]
+FileTable:
+
+Heap:
+
+--Program ID 2--
+
+ExeStack:
+b bool
+(c int;(b=true;(c=(b)?100:200;(print(c);(c=(false)?100:200;print(c))))))
+
+SymTable:
+
+Out:
+[]
+FileTable:
+
+Heap:
+
+--Program ID 2--
+
+ExeStack:
+b bool
+(c int;(b=true;(c=(b)?100:200;(print(c);(c=(false)?100:200;print(c))))))
+
+SymTable:
+
+Out:
+[]
+FileTable:
+
+Heap:
+
+--Program ID 2--
+
+ExeStack:
+(c int;(b=true;(c=(b)?100:200;(print(c);(c=(false)?100:200;print(c))))))
+
+SymTable:
+b->false
+
+Out:
+[]
+FileTable:
+
+Heap:
+
+--Program ID 2--
+
+ExeStack:
+(c int;(b=true;(c=(b)?100:200;(print(c);(c=(false)?100:200;print(c))))))
+
+SymTable:
+b->false
+
+Out:
+[]
+FileTable:
+
+Heap:
+
+--Program ID 2--
+
+ExeStack:
+c int
+(b=true;(c=(b)?100:200;(print(c);(c=(false)?100:200;print(c)))))
+
+SymTable:
+b->false
+
+Out:
+[]
+FileTable:
+
+Heap:
+
+--Program ID 2--
+
+ExeStack:
+c int
+(b=true;(c=(b)?100:200;(print(c);(c=(false)?100:200;print(c)))))
+
+SymTable:
+b->false
+
+Out:
+[]
+FileTable:
+
+Heap:
+
+--Program ID 2--
+
+ExeStack:
+(b=true;(c=(b)?100:200;(print(c);(c=(false)?100:200;print(c)))))
+
+SymTable:
+b->false
+c->0
+
+Out:
+[]
+FileTable:
+
+Heap:
+
+--Program ID 2--
+
+ExeStack:
+(b=true;(c=(b)?100:200;(print(c);(c=(false)?100:200;print(c)))))
+
+SymTable:
+b->false
+c->0
+
+Out:
+[]
+FileTable:
+
+Heap:
+
+--Program ID 2--
+
+ExeStack:
+b=true
+(c=(b)?100:200;(print(c);(c=(false)?100:200;print(c))))
+
+SymTable:
+b->false
+c->0
+
+Out:
+[]
+FileTable:
+
+Heap:
+
+--Program ID 2--
+
+ExeStack:
+b=true
+(c=(b)?100:200;(print(c);(c=(false)?100:200;print(c))))
+
+SymTable:
+b->false
+c->0
+
+Out:
+[]
+FileTable:
+
+Heap:
+
+--Program ID 2--
+
+ExeStack:
+(c=(b)?100:200;(print(c);(c=(false)?100:200;print(c))))
+
+SymTable:
+b->true
+c->0
+
+Out:
+[]
+FileTable:
+
+Heap:
+
+--Program ID 2--
+
+ExeStack:
+(c=(b)?100:200;(print(c);(c=(false)?100:200;print(c))))
+
+SymTable:
+b->true
+c->0
+
+Out:
+[]
+FileTable:
+
+Heap:
+
+--Program ID 2--
+
+ExeStack:
+c=(b)?100:200
+(print(c);(c=(false)?100:200;print(c)))
+
+SymTable:
+b->true
+c->0
+
+Out:
+[]
+FileTable:
+
+Heap:
+
+--Program ID 2--
+
+ExeStack:
+c=(b)?100:200
+(print(c);(c=(false)?100:200;print(c)))
+
+SymTable:
+b->true
+c->0
+
+Out:
+[]
+FileTable:
+
+Heap:
+
+--Program ID 2--
+
+ExeStack:
+IF(b) THEN(c=100)ELSE(c=200)
+(print(c);(c=(false)?100:200;print(c)))
+
+SymTable:
+b->true
+c->0
+
+Out:
+[]
+FileTable:
+
+Heap:
+
+--Program ID 2--
+
+ExeStack:
+IF(b) THEN(c=100)ELSE(c=200)
+(print(c);(c=(false)?100:200;print(c)))
+
+SymTable:
+b->true
+c->0
+
+Out:
+[]
+FileTable:
+
+Heap:
+
+--Program ID 2--
+
+ExeStack:
+c=100
+(print(c);(c=(false)?100:200;print(c)))
+
+SymTable:
+b->true
+c->0
+
+Out:
+[]
+FileTable:
+
+Heap:
+
+--Program ID 2--
+
+ExeStack:
+c=100
+(print(c);(c=(false)?100:200;print(c)))
+
+SymTable:
+b->true
+c->0
+
+Out:
+[]
+FileTable:
+
+Heap:
+
+--Program ID 2--
+
+ExeStack:
+(print(c);(c=(false)?100:200;print(c)))
+
+SymTable:
+b->true
+c->100
+
+Out:
+[]
+FileTable:
+
+Heap:
+
+--Program ID 2--
+
+ExeStack:
+(print(c);(c=(false)?100:200;print(c)))
+
+SymTable:
+b->true
+c->100
+
+Out:
+[]
+FileTable:
+
+Heap:
+
+--Program ID 2--
+
+ExeStack:
+print(c)
+(c=(false)?100:200;print(c))
+
+SymTable:
+b->true
+c->100
+
+Out:
+[]
+FileTable:
+
+Heap:
+
+--Program ID 2--
+
+ExeStack:
+print(c)
+(c=(false)?100:200;print(c))
+
+SymTable:
+b->true
+c->100
+
+Out:
+[]
+FileTable:
+
+Heap:
+
+--Program ID 2--
+
+ExeStack:
+(c=(false)?100:200;print(c))
+
+SymTable:
+b->true
+c->100
+
+Out:
+[100]
+FileTable:
+
+Heap:
+
+--Program ID 2--
+
+ExeStack:
+(c=(false)?100:200;print(c))
+
+SymTable:
+b->true
+c->100
+
+Out:
+[100]
+FileTable:
+
+Heap:
+
+--Program ID 2--
+
+ExeStack:
+c=(false)?100:200
+print(c)
+
+SymTable:
+b->true
+c->100
+
+Out:
+[100]
+FileTable:
+
+Heap:
+
+--Program ID 2--
+
+ExeStack:
+c=(false)?100:200
+print(c)
+
+SymTable:
+b->true
+c->100
+
+Out:
+[100]
+FileTable:
+
+Heap:
+
+--Program ID 2--
+
+ExeStack:
+IF(false) THEN(c=100)ELSE(c=200)
+print(c)
+
+SymTable:
+b->true
+c->100
+
+Out:
+[100]
+FileTable:
+
+Heap:
+
+--Program ID 2--
+
+ExeStack:
+IF(false) THEN(c=100)ELSE(c=200)
+print(c)
+
+SymTable:
+b->true
+c->100
+
+Out:
+[100]
+FileTable:
+
+Heap:
+
+--Program ID 2--
+
+ExeStack:
+c=200
+print(c)
+
+SymTable:
+b->true
+c->100
+
+Out:
+[100]
+FileTable:
+
+Heap:
+
+--Program ID 2--
+
+ExeStack:
+c=200
+print(c)
+
+SymTable:
+b->true
+c->100
+
+Out:
+[100]
+FileTable:
+
+Heap:
+
+--Program ID 2--
+
+ExeStack:
+print(c)
+
+SymTable:
+b->true
+c->200
+
+Out:
+[100]
+FileTable:
+
+Heap:
+
+--Program ID 2--
+
+ExeStack:
+print(c)
+
+SymTable:
+b->true
+c->200
+
+Out:
+[100]
+FileTable:
+
+Heap:
+
+--Program ID 2--
+
+ExeStack:
+
+SymTable:
+b->true
+c->200
+
+Out:
+[100, 200]
+FileTable:
+
+Heap:
+

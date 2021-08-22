@@ -1,0 +1,41 @@
+﻿@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<script src="~/Scripts/jquery-3.4.1.js"></script>
+<script language="javascript">
+
+
+    $(document).ready(function () {
+        let currentUser = sessionStorage["currentUser"];
+        if (currentUser) {
+            Array.prototype.pushArray = function (arr) {
+                this.push.apply(this, arr);
+            };
+            
+            console.log(currentUser);
+        }
+        else {
+            location.href = 'Login';
+        }
+        $("#logout-btn").click(function () {
+            sessionStorage.setItem("currentUser", null);
+            console.log(sessionStorage["currentUser"]);
+            location.href = 'Login';
+        });
+    }
+    );
+
+</script>
+<html>
+<body>
+    <button type="button" id="logout-btn">Logout</button>
+    <p id="user" style="text-align:center"></p>
+
+    <a href="~/Main/ViewAssets">Go to assets page</a>
+
+
+</body>
+
+
+</html>

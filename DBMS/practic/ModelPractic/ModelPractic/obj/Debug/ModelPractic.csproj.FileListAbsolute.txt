@@ -1,0 +1,10 @@
+C:\Users\Diana\Desktop\UNI\DBMS\practic\ModelPractic\ModelPractic\bin\Debug\ModelPractic.exe.config
+C:\Users\Diana\Desktop\UNI\DBMS\practic\ModelPractic\ModelPractic\bin\Debug\ModelPractic.exe
+C:\Users\Diana\Desktop\UNI\DBMS\practic\ModelPractic\ModelPractic\bin\Debug\ModelPractic.pdb
+C:\Users\Diana\Desktop\UNI\DBMS\practic\ModelPractic\ModelPractic\obj\Debug\ModelPractic.csprojAssemblyReference.cache
+C:\Users\Diana\Desktop\UNI\DBMS\practic\ModelPractic\ModelPractic\obj\Debug\ModelPractic.Form1.resources
+C:\Users\Diana\Desktop\UNI\DBMS\practic\ModelPractic\ModelPractic\obj\Debug\ModelPractic.Properties.Resources.resources
+C:\Users\Diana\Desktop\UNI\DBMS\practic\ModelPractic\ModelPractic\obj\Debug\ModelPractic.csproj.GenerateResource.cache
+C:\Users\Diana\Desktop\UNI\DBMS\practic\ModelPractic\ModelPractic\obj\Debug\ModelPractic.csproj.CoreCompileInputs.cache
+C:\Users\Diana\Desktop\UNI\DBMS\practic\ModelPractic\ModelPractic\obj\Debug\ModelPractic.exe
+C:\Users\Diana\Desktop\UNI\DBMS\practic\ModelPractic\ModelPractic\obj\Debug\ModelPractic.pdb

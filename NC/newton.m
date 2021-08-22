@@ -1,0 +1,1 @@
+function [x,i]=newton(f,fd, x0,err=1e-12,max_iter=100)  for i=1:max_iter    x = x0 - f(x0)/fd(x0);    if abs(x-x0) < err || abs(f(x)) < err      return    endif    x0=x;  endfor    endfunction

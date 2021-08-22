@@ -1,0 +1,1 @@
+a=0; b=1; n=100; f = @(x) (4 ./ (1 + x .^ 2)) #repeatedRectangle(a,b,n,f)repeatedSimpsonimsonVectorized(a,b,n,f) ## repeatedTrapeziumVectorized(a,b,n,f)

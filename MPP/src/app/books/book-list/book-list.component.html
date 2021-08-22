@@ -1,0 +1,40 @@
+<div class="book-section">
+
+  <div id="selBooktDiv" *ngIf="selectedBook">
+    <p id="selBookName">The interesting book '{{selectedBook.title}}' written by {{selectedBook.author}}</p>
+    <button (click)="goToBookDetail()">Show details about {{selectedBook.title}}</button>
+  </div>
+
+
+  <div class="bookContainer">
+    <p id="bookParagraph">Our finest book selection</p>
+    <li class="bookElem" *ngFor="let book of books"
+        [class.selected]="book === selectedBook"
+        (click)="onSelect(book)">
+        '{{book.title}}' by {{book.author}}
+      <button id="remBook" (click)="removeBook(book); $event.stopPropagation()">Remove Book</button>
+    </li>
+
+    <div class="searchBarContainer">
+      <div class="sortByBookContainer">
+        <label id="sortByBookLabel">Sort By</label>
+      </div>
+      <div class="inputSortByBookContainer">
+        <input id="sortByBookInput" #val placeholder="Sort key...">
+      </div>
+      <div class="goContainer">
+        <label id="showBooksLabel" (click)="doFiltering(val.value)">Apply</label>
+      </div>
+    </div>
+
+  </div>
+  <div class="navigationBar">
+    <div id="previousPageBooksContainer" (click)="prevPage()">
+      <label id="previousPageBooks">Previous Page</label>
+    </div>
+    <div id="nextPageBooksContainer" (click)="nextPage()">
+      <label id="nextPageBooks">Next Page</label>
+    </div>
+  </div>
+
+</div>

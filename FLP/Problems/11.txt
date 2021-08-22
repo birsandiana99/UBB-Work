@@ -1,0 +1,8 @@
+R1
+1. Se dadea o functie in prolog si sa se precizeze rezultatul
+2. Sa se scrie in 2 moduri urmatoarea probelma in prolog: Se da o lista, sa se calculeze suma primelor N numere ale listei.
+3. Sa se determine submultimile unei liste, iar submultimile sa aiba numar par de elemente
+Ex: lista [2 3 4] -> [ [] [2 3] [3 4] [2 4] ] (nu sunt foarte sigura)
+4. Sa se dubleze valorile dintr-o lista aflate din N in N si sa se deduca complexitatea
+Ex: (1 2 3 4 5) -> (1 2 2 3 4 4 5) unde N=2
+5. Nr submultimilor care au numarul atomilor numerici de pe nivel impar numar par.

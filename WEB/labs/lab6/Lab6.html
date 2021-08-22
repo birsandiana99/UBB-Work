@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<head>
+	<style type="text/css">
+		.mytablerow {
+			background-color: #ff9999;
+		}
+		.mytablerow2 {
+			background-color: #aa9999;
+		}
+	</style>
+	<script src="jquery-3.5.0.js"></script>
+	<script src="Lab6.js"></script>
+</head>
+<body>
+	<div id="getters">
+		<section style="border: 1px solid green; width: 400px;">
+			Get author details:<br/>
+			Author Name: <input type="text" name="author" id="author"><br/>
+			<input type="button" id="btn_getAuthor" value="Get details"><br/>
+		</section>
+
+		<p></p>
+
+		<section style="border: 1px solid green; width: 400px;">
+			Get recipe details:<br/>
+			Recipe Name: <input type="text" name="recipe" id="recipe"><br/>
+			<input type="button" id="btn_getRecipe" value="Get details"><br/>
+		</section>
+
+		<p></p>
+
+		<section style="border: 1px solid green; width: 400px;">
+			Get all recipes:<br/>
+			<input type="button" id="btn_getRecipes" value="Get all recipes"><br/>
+		</section>
+	</div>
+	<p></p>
+	<div id="inserts">
+		<section style="border: 1px solid green; width: 400px;">
+			Insert a new author: <br/> 
+			Author_ID: <input type="text" name="authorID" id="authorID"><br/>
+			Author_Name: <input type="text" name="authorName" id="authorName"><br/>
+			<input type="button" id="btn_addAuthor" value="Insert an author"><br/>
+		</section>
+
+		<p></p>
+
+		<section style="border: 1px solid green; width: 400px;">
+			Insert a new recipe: <br/> 
+			Recipe_Author_ID: <input type="text" name="recipeAuthorID" id="recipeAuthorID"><br/>
+			Recipe_Ingredients: <input type="text" name="recipeIngredients" id="recipeIngredients"><br/>
+			Recipe_Instructions: <input type="text" name="recipeInstructions" id="recipeInstructions"><br/>
+			Recipe_Name: <input type="text" name="recipeName" id="recipeName"><br/>
+			<input type="button" id="btn_addRecipe" value="Insert a recipe"><br/>
+		</section>
+	</div>
+	<p></p>
+	<div id="deletes">
+		<section style="border: 1px solid green; width: 400px;">
+			Delete an author: <br/>
+			Author_ID: <input type="text" name="delAuthorID" id="delAuthorID"><br/>
+			<input type="button" id="btn_deleteAuthor" value="Delete an author"><br/>
+		</section>
+
+		<p></p>
+
+		<section style="border: 1px solid green; width: 400px;">
+			Delete a recipe: <br/>
+			Recipe_ID: <input type="text" name="delRecipeID" id="delRecipeID"><br/>
+			<input type="button" id="btn_deleteRecipe" value="Delete a recipe"><br/>
+		</section>
+	</div>
+	<p></p>
+	<div id="updates">
+		<section style="border: 1px solid green; width: 400px;">
+			Update an author: <br/>	
+			Author_ID to be updated: <input type="text" name="updAuthorID" id="updAuthorID"><br/>
+			New Author_Name: <input type="text" name="updAuthorName" id="updAuthorName"><br/>
+			<input type="button" id="btn_updateAuthor" value="Update an author">
+		</section>
+		
+		<p></p>
+
+		<section style="border: 1px solid green; width: 400px;">
+			Update a recipe: <br/>
+			Recipe_ID to be updated: <input type="text" name="updRecipeID" id="updRecipeID"><br/>
+			New Recipe_Author_ID: <input type="text" name="updRecipeAuthorID" id="updRecipeAuthorID"><br/>
+			New Recipe_Ingredients: <input type="text" name="updRecipeIng" id="updRecipeIng"><br/>
+			New Recipe_Instructions: <input type="text" name="updRecipeIns" id="updRecipeIns"><br/>
+			New Recipe_Name: <input type="text" name="updRecipeName" id="updRecipeName"><br/>
+			<input type="button" id="btn_updateRecipe" value="Update a recipe">
+		</section>
+	</div>
+	<p></p>
+	<div id="filters">
+		<section style="border: 1px solid green; width: 400px;">
+			Search recipes: <input type="text" name="filRecipe" id="filRecipe"><br/>
+			<input type="button" id="btn_filterRecipes" value="Filter"><br/>
+			<div id="prevFilters">
+				<select id="opts">
+				</select>
+			</div>
+		</section>
+	</div>
+	<hr/>
+
+	<section id="main"></section>
+</body>
+</html>
